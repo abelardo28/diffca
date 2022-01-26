@@ -23,7 +23,7 @@
 <livewire:auth.login>
 
 <div class="preloader">
-    <img src="images/preloader-2.gif" alt="preloader">
+    <img src="{{ asset('images/preloader-2.gif') }}" alt="preloader">
 </div>
 
 <header class="fixed-top header">

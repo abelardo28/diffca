@@ -64,8 +64,8 @@
                     <div class="col-sm-6 col-xl-5 mb-xl-4 mb-lg-2 mb-2 text-center text-sm-left">
                         <h4 class="mb-xl-2 mb-lg-2 mb-2">UDIS</h4>
                         <small class="text-secondary">Valor:</small>
-                        <h2 class="text-primary"> 7.113403</h2>
-                        <small class="text-secondary">Act. </small><span class="font-weight-bold" id="last-date-tipo-cambio">24/01/2022</span>
+                        <h2 class="text-primary" id="value-udis"> 0</h2>
+                        <small class="text-secondary">Act. </small><span class="font-weight-bold" id="date-udis">0</span>
                     </div>
                     <div class="col-sm-6 col-xl-5 mb-xl-4 mb-lg-2 mb-2 text-center text-sm-left">
                         <h4 class="mb-xl-2 mb-lg-2 mb-2">Inflación</h4>
@@ -393,5 +393,17 @@ Highcharts.getJSON(
         $('#last-value-inpc').html(data.at(-1)[1])
     }
 );
+
+$(function(){
+    $.ajax({
+        url : "{{ route('udis') }}",
+        dataType : 'json',
+        success : function(data) {
+            console.log(data.at(-1)[0]);
+            $("#value-udis").html(data.at(-1)[1]);
+            $("#date-udis").html(data.at(-1)[0]);
+        }
+    });
+});
 </script>
 @endsection
