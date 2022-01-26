@@ -8,7 +8,7 @@ use App\Models\User;
 
 class Login extends Component
 {
-    public $email = 'mvillanueva@diffca.com', $password = '12345678';
+    public $email, $password;
 
     public function render(){
         return view('livewire.auth.login');
