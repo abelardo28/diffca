@@ -21,7 +21,7 @@
     <div class="container">
         <div class="row mb-5">
             <div class="col-md-6 mb-4 mb-md-0">
-                <img class="img-fluid" src="images/scholarship/scholarship.jpg" alt="scholarship news">
+                <img class="img-fluid" src="{{ asset('images/contabilidad.png') }}" alt="contabilidad">
             </div>
             <div class="col-md-6">
                 <h2>Contabilidad</h2>
@@ -34,12 +34,12 @@
                 <p class="text-justify">Nuestros servicios de determinación de impuestos derivan del correcto proceso de la información financiera y el conocimiento pleno de las leyes fiscales y todos sus correlativos, para cumplir con todas las obligaciones y gozar también de los beneficios fiscales.</p>
             </div>
             <div class="col-md-6 mb-4 mb-md-0">
-                <img class="img-fluid" src="images/scholarship/scholarship.jpg" alt="scholarship news">
+                <img class="img-fluid" src="{{ asset('images/impuestos.png') }}" alt="impuestos">
             </div>
         </div>
         <div class="row mb-5">
             <div class="col-md-6 mb-4 mb-md-0">
-                <img class="img-fluid" src="images/scholarship/scholarship.jpg" alt="scholarship news">
+                <img class="img-fluid" src="{{ asset('images/asesoriafiscal.png') }}" alt="asesoria fiscal">
             </div>
             <div class="col-md-6">
                 <h2>Asesoría Fiscal y Patrimonial</h2>
@@ -52,12 +52,12 @@
                 <p class="text-justify">Nuestros servicios de auditoria se desarrollan llevando a cabo una revisión de acuerdo al tipo de entidad, y de acuerdo a las necesidades del cliente, haciendo la mejor recomendación en cuanto a los alcances considerando las Normas Internacionales de Auditoria.</p>
             </div>
             <div class="col-md-6 mb-4 mb-md-0">
-                <img class="img-fluid" src="images/scholarship/scholarship.jpg" alt="scholarship news">
+                <img class="img-fluid" src="{{ asset('images/auditoria.png') }}" alt="auditoria">
             </div>
         </div>
         <div class="row mb-5">
             <div class="col-md-6 mb-4 mb-md-0">
-                <img class="img-fluid" src="images/scholarship/scholarship.jpg" alt="scholarship news">
+                <img class="img-fluid" src="{{ asset('images/nomina.png') }}" alt="nomina">
             </div>
             <div class="col-md-6">
                 <h2>Nómina</h2>
@@ -70,7 +70,7 @@
                 <p class="text-justify">Por diferentes situaciones las autoridades fiscales podrán solicitar entrevistarse personalmente con los contribuyentes, nuestro servicio incluye la representación de nuestro Cliente en todo momento de estas entrevistas lo que ayudaría a una mejor situación presencial y elimina la incomodad para nuestro Cliente.</p>
             </div>
              <div class="col-md-6 mb-4 mb-md-0">
-                <img class="img-fluid" src="images/scholarship/scholarship.jpg" alt="scholarship news">
+                <img class="img-fluid" src="{{ asset('images/representantefiscal.png') }}" alt="representacion fiscal">
             </div>
         </div>
     </div>

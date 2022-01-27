@@ -100,7 +100,7 @@
                 <a href="{{ route('about') }}" class="btn btn-primary-outline">Leer más</a>
             </div>
             <div class="col-md-6 order-1 order-md-2 mb-4 mb-md-0">
-                <img class="img-fluid w-100" src="images/about/about-us.jpg" alt="about image">
+                <img class="img-fluid w-100" src="{{ asset('images/equipo.jpg') }}" alt="equipo">
             </div>
         </div>
     </div>
@@ -119,7 +119,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-4 col-sm-6 mb-5">
                 <div class="card p-0 border-primary rounded-0 hover-shadow">
-                    <img class="card-img-top rounded-0" src="images/courses/course-1.jpg" alt="course thumb">
+                    <img class="card-img-top rounded-0" src="{{ asset('images/responsabilidad.jpg') }}" alt="Responsabilidad">
                     <div class="card-body">
                         <a href="course-single.html" class="text-center">
                             <h4 class="card-title">Responsabilidad</h4>
@@ -129,7 +129,7 @@
             </div>
             <div class="col-lg-4 col-sm-6 mb-5">
                 <div class="card p-0 border-primary rounded-0 hover-shadow">
-                    <img class="card-img-top rounded-0" src="images/courses/course-1.jpg" alt="course thumb">
+                    <img class="card-img-top rounded-0" src="{{ asset('images/contabilidad.png') }}" alt="contabilidad">
                     <div class="card-body">
                         <a href="course-single.html" class="text-center">
                             <h4 class="card-title">Contabilidad</h4>
@@ -139,7 +139,7 @@
             </div>
             <div class="col-lg-4 col-sm-6 mb-5">
                 <div class="card p-0 border-primary rounded-0 hover-shadow">
-                    <img class="card-img-top rounded-0" src="images/courses/course-1.jpg" alt="course thumb">
+                    <img class="card-img-top rounded-0" src="{{ asset('images/confiabilidad.png') }}" alt="Confiabilidad">
                     <div class="card-body">
                         <a href="course-single.html" class="text-center">
                             <h4 class="card-title">Confiabilidad</h4>
@@ -149,7 +149,7 @@
             </div>
             <div class="col-lg-4 col-sm-6 mb-5">
                 <div class="card p-0 border-primary rounded-0 hover-shadow">
-                    <img class="card-img-top rounded-0" src="images/courses/course-1.jpg" alt="course thumb">
+                    <img class="card-img-top rounded-0" src="{{ asset('images/impuestos.png') }}" alt="impuestos">
                     <div class="card-body">
                         <a href="course-single.html" class="text-center">
                             <h4 class="card-title">Impuestos</h4>
@@ -159,7 +159,7 @@
             </div>
             <div class="col-lg-4 col-sm-6 mb-5">
                 <div class="card p-0 border-primary rounded-0 hover-shadow">
-                    <img class="card-img-top rounded-0" src="images/courses/course-1.jpg" alt="course thumb">
+                    <img class="card-img-top rounded-0" src="{{ asset('images/espiritudeservicio.png') }}" alt="Espíritu de servicio">
                     <div class="card-body">
                         <a href="course-single.html" class="text-center">
                             <h4 class="card-title">Espíritu de Servicio</h4>
@@ -169,7 +169,7 @@
             </div>
             <div class="col-lg-4 col-sm-6 mb-5">
                 <div class="card p-0 border-primary rounded-0 hover-shadow">
-                    <img class="card-img-top rounded-0" src="images/courses/course-1.jpg" alt="course thumb">
+                    <img class="card-img-top rounded-0" src="{{ asset('images/asesoriafiscal.png') }}" alt="asesoría fiscal">
                     <div class="card-body">
                         <a href="course-single.html" class="text-center">
                             <h4 class="card-title">Asesoría Fiscal y Patrimonial</h4>
@@ -179,7 +179,7 @@
             </div>
             <div class="col-lg-4 col-sm-6 mb-5">
                 <div class="card p-0 border-primary rounded-0 hover-shadow">
-                    <img class="card-img-top rounded-0" src="images/courses/course-1.jpg" alt="course thumb">
+                    <img class="card-img-top rounded-0" src="{{ asset('images/honestidad.png') }}" alt="Honestidad">
                     <div class="card-body">
                         <a href="course-single.html" class="text-center">
                             <h4 class="card-title">Honestidad</h4>
@@ -189,7 +189,7 @@
             </div>
             <div class="col-lg-4 col-sm-6 mb-5">
                 <div class="card p-0 border-primary rounded-0 hover-shadow">
-                    <img class="card-img-top rounded-0" src="images/courses/course-1.jpg" alt="course thumb">
+                    <img class="card-img-top rounded-0" src="{{ asset('images/auditoria.png') }}" alt="auditoria">
                     <div class="card-body">
                         <a href="course-single.html" class="text-center">
                             <h4 class="card-title">Auditoría</h4>
@@ -199,7 +199,7 @@
             </div>
             <div class="col-lg-4 col-sm-6 mb-5">
                 <div class="card p-0 border-primary rounded-0 hover-shadow">
-                    <img class="card-img-top rounded-0" src="images/courses/course-1.jpg" alt="course thumb">
+                    <img class="card-img-top rounded-0" src="{{ asset('images/nomina.png') }}" alt="nomina">
                     <div class="card-body">
                         <a href="course-single.html" class="text-center">
                             <h4 class="card-title">Nómina</h4>
@@ -209,7 +209,7 @@
             </div>
             <div class="col-lg-4 col-sm-6 mb-5">
                 <div class="card p-0 border-primary rounded-0 hover-shadow">
-                    <img class="card-img-top rounded-0" src="images/courses/course-1.jpg" alt="course thumb">
+                    <img class="card-img-top rounded-0" src="{{ asset('images/compromiso.png') }}" alt="compromiso">
                     <div class="card-body">
                         <a href="course-single.html" class="text-center">
                             <h4 class="card-title">Compromiso</h4>
@@ -219,7 +219,7 @@
             </div>
             <div class="col-lg-4 col-sm-6 mb-5">
                 <div class="card p-0 border-primary rounded-0 hover-shadow">
-                    <img class="card-img-top rounded-0" src="images/courses/course-1.jpg" alt="course thumb">
+                    <img class="card-img-top rounded-0" src="{{ asset('images/representantefiscal.png') }}" alt="Representación fiscal">
                     <div class="card-body">
                         <a href="course-single.html" class="text-center">
                             <h4 class="card-title">Representación Ante Autoridades Fiscales</h4>
@@ -229,7 +229,7 @@
             </div>
             <div class="col-lg-4 col-sm-6 mb-5">
                 <div class="card p-0 border-primary rounded-0 hover-shadow">
-                    <img class="card-img-top rounded-0" src="images/courses/course-1.jpg" alt="course thumb">
+                    <img class="card-img-top rounded-0" src="{{ asset('images/seguridad.png') }}" alt="Seguridad">
                     <div class="card-body">
                         <a href="course-single.html" class="text-center">
                             <h4 class="card-title">Seguridad</h4>
@@ -241,31 +241,31 @@
     </div>
 </section>
 
-<section class="section bg-primary">
+<section class="section-sm bg-primary">
     <div class="container">
         <div class="row">
-            <div class="col-12 text-center">
-                <h6 class="text-white font-secondary mb-0">Calidad y respaldo a nuestros clientes</h6>
-                <h2 class="section-title text-white">Te interesa uno de nuestros servicios</h2>
-                <a href="{{ route('contact') }}" class="btn btn-secondary">Contáctanos ahora</a>
+            <div class="col-md-3 col-sm-6 mb-4 mb-md-0">
+                <div class="text-center">
+                    <h2 class="count text-white" data-count="60">60</h2>
+                    <h5 class="text-white">SOLUCIONES</h5>
+                </div>
             </div>
-        </div>
-    </div>
-</section>
-
-<section class="section bg-cover" data-background="images/backgrounds/success-story.jpg">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 col-sm-4 position-relative success-video">
-                <a class="play-btn venobox" href="https://youtu.be/nA1Aqp0sPQo" data-vbtype="video">
-                    <i class="ti-control-play"></i>
-                </a>
+            <div class="col-md-3 col-sm-6 mb-4 mb-md-0">
+                <div class="text-center">
+                    <h2 class="count text-white" data-count="50">50</h2>
+                    <h5 class="text-white">AUDITORÍAS</h5>
+                </div>
             </div>
-            <div class="col-lg-6 col-sm-8">
-                <div class="bg-white p-5">
-                    <h2 class="section-title">Success Stories</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
+            <div class="col-md-3 col-sm-6 mb-4 mb-md-0">
+                <div class="text-center">
+                    <h2 class="count text-white" data-count="100">100</h2>
+                    <h5 class="text-white">CASOS DE ÉXITO</h5>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4 mb-md-0">
+                <div class="text-center">
+                    <h2 class="count text-white" data-count="3737">3737</h2>
+                    <h5 class="text-white">CLIENTES SATISFECHOS</h5>
                 </div>
             </div>
         </div>
@@ -289,11 +289,11 @@
                             <li class="list-inline-item mr-3 ml-0">{{ $blog->created_at->diffForHumans() }}</li>
                             <li class="list-inline-item mr-3 ml-0">Por {{ $blog->user->name }}</li>
                         </ul>
-                        <a href="blog/{{ $blog->url }}">
+                        <a href="{{ route('blog-detail', $blog->url) }}">
                             <h4 class="card-title">{{ $blog->title }}</h4>
                         </a>
                         <p class="card-text">{{ substr($blog->content, 0, 140) }}...</p>
-                        <a href="blog/{{ $blog->url }}" class="btn btn-primary btn-sm">Leer más</a>
+                        <a href="{{ route('blog-detail', $blog->url) }}" class="btn btn-primary btn-sm">Leer más</a>
                     </div>
                 </div>
             </article>
