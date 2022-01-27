@@ -139,9 +139,9 @@
                 <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
                     <h4 class="text-white mb-5">ACCESOS</h4>
                     <ul class="list-unstyled">
-                        <li class="mb-3"><a class="text-color" href="#">Iniciar Sesión</a></li>
+                        <li class="mb-3"><a class="text-color" href="http://dycea.software/diffca/" target="_blank">Iniciar Sesión</a></li>
                         @guest
-                        <li class="mb-3"><a class="text-color" href="#" data-toggle="modal" data-target="#loginModal">Admin</a></li>
+                        <li class="mb-3"><a class="text-color" href="#" data-toggle="modal" data-target="#loginModal">Acceso al Gestor</a></li>
                         @else
                         <li class="mb-3"><a class="text-color" href="{{ route('home') }}" data-toggle="tooltip" title="Ir al Sistema">Sesión iniciada como {{ auth()->user()->name }}</a></li>
                         @endguest

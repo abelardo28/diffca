@@ -16,6 +16,11 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon">
     <link rel="icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon">
+    <style type="text/css">
+        i {
+            cursor: pointer;
+        }
+    </style>
     @livewireStyles
 </head>
 <body>

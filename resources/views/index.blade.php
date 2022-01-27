@@ -3,7 +3,7 @@
 @section('title', 'Inicio')
 
 @section('content')
-<section class="hero-section overlay bg-cover" data-background="images/banner/banner-1.jpg">
+<section class="hero-section overlay bg-cover" data-background="{{ asset('images/banner.jpg') }}">
     <div class="container">
         <div class="hero-slider">
             <div class="hero-slider-item">
