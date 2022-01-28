@@ -9,7 +9,7 @@ class Categories extends Component
 {
     protected $listeners = ['mount'];
     public $categories;
-    public $category, $user;
+    public $category;
     public $name, $description;
 
     public function mount(){
@@ -21,13 +21,18 @@ class Categories extends Component
         return view('livewire.admin.categories.categories')->extends('layouts.admin');
     }
 
+    public function create(){
+        $this->emit('open-modal', 'new-category');
+        $this->reset('name','description');
+    }
+
     public function store(){
         Category::create([
             'name' => $this->name,
             'description' => $this->description
         ]);
         $this->dispatchBrowserEvent('success', ['message' => '¡La categoria se ha registrado!', 'title' => 'Categoria registrada', 'modal' => 'new-category']);
-        $this->reset('name','category');
+        $this->reset('name','description');
         $this->emitSelf('mount');
     }
 
@@ -44,7 +49,7 @@ class Categories extends Component
             'description' => $this->description
         ]);
         $this->dispatchBrowserEvent('success', ['message' => '¡La categoria se ha actualizado!', 'title' => 'Categoria actualizada', 'modal' => 'edit-category']);
-        $this->reset('category');
+        $this->reset('name','description');
         $this->emitSelf('mount');
     }
 

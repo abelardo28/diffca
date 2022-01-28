@@ -82,7 +82,7 @@
 @yield('content')
 
 <footer>
-    <div class="newsletter">
+    {{-- <div class="newsletter">
         <div class="container">
             <div class="row">
                 <div class="col-md-9 ml-auto bg-primary py-5 newsletter-block">
@@ -96,7 +96,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <div class="footer bg-footer section border-bottom">
         <div class="container">

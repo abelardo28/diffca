@@ -10,7 +10,7 @@
                     </ul>
                 </div>
                 <div class="col-md-4 text-right">
-                    <button class="btn btn-primary btn-sm" wire:click="$emit('open-modal', 'new-category')">Nueva categoria</button>
+                    <button class="btn btn-primary btn-sm" wire:click="create()">Nueva categoria</button>
                 </div>
             </div>
         </div>
@@ -25,7 +25,9 @@
                             <h4 class="card-title">{{ $category->name }}</h4>
                             <p class="card-text mb-4">{{ $category->description }}</p>
                             <button class="btn btn-primary btn-sm" wire:click="edit({{ $category->id }})">Editar categoria</button>
-                            <i role="button" wire:click="delete({{ $category->id }})" class="ti-trash text-danger float-right mt-2"></i>
+                            <button type="button" class="btn btn-danger btn-sm float-right" wire:click="delete({{ $category->id }})" onclick="confirm('¿Está seguro de eliminar la categoria?') || event.stopImmediatePropagation()">
+                                <i class="ti-trash"></i>
+                            </button>
                         </div>
                     </div>
                 </div>

@@ -1,10 +1,15 @@
 <?php
 
+use App\Http\Livewire\Index;
+use App\Http\Livewire\About;
+use App\Http\Livewire\Services;
+use App\Http\Livewire\Blog;
+use App\Http\Livewire\BlogDetail;
+use App\Http\Livewire\Contact;
 use App\Http\Livewire\Admin\Home\Home;
 use App\Http\Livewire\Admin\Categories\Categories;
 use App\Http\Livewire\Admin\News\News;
 use Illuminate\Support\Facades\Route;
-use App\Models\Blog;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,32 +22,17 @@ use App\Models\Blog;
 |
 */
 
-Route::get('/', function () {
-    $blogs = Blog::latest()->take(3)->get();
-    return view('index', compact('blogs'));
-})->name('index');
+Route::get('/', Index::class)->name('index');
 
-Route::get('/nosotros', function () {
-    return view('about');
-})->name('about');
+Route::get('/nosotros', About::class)->name('about');
 
-Route::get('/servicios', function () {
-    return view('services');
-})->name('services');
+Route::get('/servicios', Services::class)->name('services');
 
-Route::get('/blog', function () {
-    $blogs = Blog::latest()->get();
-    return view('blog', compact('blogs'));
-})->name('blog');
+Route::get('/blog', Blog::class)->name('blog');
 
-Route::get('/blog/{url}', function () {
-    $blog = Blog::where('url', 'actividades-empresariales-de-las-personas-fisicas')->first();
-    return view('blog-detail', compact('blog'));
-})->name('blog-detail');
+Route::get('/blog/{url}', BlogDetail::class)->name('blog-detail');
 
-Route::get('/contacto', function () {
-    return view('contact');
-})->name('contact');
+Route::get('/contacto', Contact::class)->name('contact');
 
 Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::get('/home', Home::class)->name('home');

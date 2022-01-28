@@ -41,6 +41,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navigation">
                     <ul class="navbar-nav ml-auto text-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('index') }}" target="_blank">Ir al Sitio</a>
+                        </li>
                         <li class="nav-item {{ Request::is('admin/home') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('home') }}">Inicio</a>
                         </li>
