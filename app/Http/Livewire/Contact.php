@@ -22,11 +22,12 @@ class Contact extends Component
             'phone' => 'required',
             'message' => 'required',
         ]);
-        if ($this->validateRecaptcha($this->request)) {
-            Mail::to(['abelardo-ca@hotmail.com'])->send(new sendMail($this->request));
+        // if ($this->validateRecaptcha($this->request)) {
+            Mail::to('abelardo-ca@hotmail.com')->send(new sendMail($this));
             $this->dispatchBrowserEvent('success', ['message' => '¡Gracias por tu mensaje, nos pondremos en contacto contigo lo más pronto posible!', 'title' => 'Mensaje enviado']);
-        }
-        $this->dispatchBrowserEvent('error', ['message' => '¡Debe seleccionar la opción del captcha!', 'title' => 'Error al enviar mensaje']);
+            $this->reset('name','email','phone','message');
+        // }
+        // $this->dispatchBrowserEvent('error', ['message' => '¡Debe seleccionar la opción del captcha!', 'title' => 'Error al enviar mensaje']);
     }
     
     public static function validateRecaptcha($request){
