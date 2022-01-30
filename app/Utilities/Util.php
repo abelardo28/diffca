@@ -4,6 +4,7 @@ namespace App\Utilities;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7;
+use Storage;
 
 class Util {
 
@@ -49,5 +50,11 @@ class Util {
         $cleanTxt = strtolower(self::cleanString($str));
         $url = str_replace(" ", "-", $cleanTxt);
         return $url;
+    }
+
+    public static function getUploadFile($file, $disk){
+        $file_route = time().'_'.$file->getClientOriginalName();
+        Storage::disk($disk)->put($file_route, file_get_contents($file->getRealPath()));
+        return $file_route;
     }
 }

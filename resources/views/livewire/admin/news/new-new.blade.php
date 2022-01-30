@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content rounded-0 border-0 p-4">
             <div class="modal-header border-0">
-                <h3>Editar Noticia</h3>
+                <h3>Nueva Noticia</h3>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -20,14 +20,22 @@
                         </div>
                     </div>
                     @endif
-                    <div class="col-12">
-                        <input type="text" class="form-control mb-3" id="title" wire:model.defer="title" placeholder="Título de la noticia">
+                    <div class="col-12" wire:ignore>
+                        <select class="form-control mb-3" name="category" wire:model.defer="category">
+                            <option value="0">Seleccione la categoria</option>
+                            @foreach($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="col-12">
-                        <textarea class="form-control mb-3" rows="4" id="content" wire:model.defer="content" placeholder="Contenido de la noticia"></textarea>
+                        <input type="text" class="form-control mb-3" name="title" wire:model.defer="title" placeholder="Título de la noticia">
                     </div>
                     <div class="col-12">
-                        <input type="file" class="form-control mb-3" id="image" wire:model.defer="image">
+                        <textarea class="form-control mb-3" rows="4" name="content" wire:model.defer="content"></textarea>
+                    </div>
+                    <div class="col-12">
+                        <input type="file" class="form-control-file mb-3" name="image" wire:model.defer="image">
                     </div>
                     <div class="col-12">
                         <button type="submit" wire:loading.prevent="disabled" class="btn btn-primary">Guardar cambios</button>

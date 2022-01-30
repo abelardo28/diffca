@@ -10,7 +10,7 @@ class Index extends Component
     public $blogs;
 
     public function mount(){
-        $this->blogs = Blog::where('status', 1)->get();
+        $this->blogs = Blog::where('status', 1)->latest()->take(3)->get();
     }
 
     public function render()

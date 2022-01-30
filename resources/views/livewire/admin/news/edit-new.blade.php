@@ -21,13 +21,21 @@
                     </div>
                     @endif
                     <div class="col-12">
-                        <input type="text" class="form-control mb-3" id="title" wire:model.defer="title" placeholder="Título de la noticia">
+                        <select class="form-control mb-3" name="category" wire:model.defer="category">
+                            <option value="0">Seleccione la categoria</option>
+                            @foreach($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="col-12">
-                        <textarea class="form-control mb-3" rows="4" id="content" wire:model.defer="content" placeholder="Contenido de la noticia"></textarea>
+                        <input type="text" class="form-control mb-3" name="title" wire:model.defer="title" placeholder="Título de la noticia">
                     </div>
                     <div class="col-12">
-                        <input type="file" class="form-control mb-3" id="image" wire:model.defer="image">
+                        <textarea class="form-control mb-3" rows="4" name="content" wire:model.defer="content" placeholder="Contenido de la noticia"></textarea>
+                    </div>
+                    <div class="col-12">
+                        <input type="file" class="form-control mb-3" name="image" wire:model.defer="image">
                     </div>
                     <div class="col-12">
                         <button type="submit" wire:loading.prevent="disabled" class="btn btn-primary">Guardar cambios</button>

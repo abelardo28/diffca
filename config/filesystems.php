@@ -43,6 +43,11 @@ return [
 
     'disks' => [
 
+        'blog-images' => [
+            'driver' => 'local',
+            'root' => public_path('blog-images'),
+        ],
+
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),

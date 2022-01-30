@@ -82,11 +82,16 @@
 @livewireScripts
 <script src="{{ asset('plugins/jQuery/jquery.min.js') }}"></script>
 <script src="{{ asset('plugins/bootstrap/bootstrap.min.js') }}"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/31.1.0/classic/ckeditor.js"></script>
 <script src="{{ asset('plugins/slick/slick.min.js') }}"></script>
 <script src="{{ asset('plugins/aos/aos.js') }}"></script>
 <script src="{{ asset('plugins/venobox/venobox.min.js') }}"></script>
 <script src="{{ asset('plugins/filterizr/jquery.filterizr.min.js') }}"></script>
 <script src="{{ asset('plugins/toastr/toastr.min.js') }}"></script>
 <script src="{{ asset('js/script.js') }}"></script>
+{{-- <script type="text/javascript">
+    ClassicEditor.create(document.querySelector('textarea[name=content]'));
+</script> --}}
+@yield('scripts')
 </body>
 </html>

@@ -16,21 +16,24 @@
     <section class="section-sm bg-gray">
         <div class="container">
             <div class="row">
+                @if($blog->image)
                 <div class="col-12 mb-4">
-                    <img src="{{ asset('images/blog/blog-single.jpg') }}" alt="blog-thumb" class="img-fluid w-100">
+                    <img src="{{ asset('blog-images/'.$blog->image) }}" alt="{{ $blog->title }}" class="img-fluid w-100">
                 </div>
+                @endif
                 <div class="col-12">
                     <ul class="list-inline">
                         <li class="list-inline-item mr-4 mb-3 mb-md-0 text-light"><span class="font-weight-bold mr-2">Por:</span>{{ $blog->user->name }}</li>
                         <li class="list-inline-item mr-4 mb-3 mb-md-0 text-light"><i class="ti-calendar mr-2"></i> {{ $blog->created_at->diffForHumans() }}</li>
+                        <li class="list-inline-item mr-4 mb-3 mb-md-0 text-light"><span class="badge bg-secondary text-white">{{ $blog->category->name }}</span></li>
                     </ul>
                 </div>
                 <div class="col-12 mt-4">
                     <div class="border-bottom border-primary"></div>
                 </div>
-                <div class="col-12 mb-5 mt-4">
+                <div class="col-12 mb-5 mt-4 blog-content">
                     <h2>{{ $blog->title }}</h2>
-                    <p>{{ $blog->content }}</p>
+                    <p>@php echo $blog->content @endphp</p>
                 </div>
             </div>
         </div>
@@ -40,7 +43,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h2 class="section-title">Recomendados</h2>
+                    <h2 class="section-title">Recientes</h2>
                 </div>
             </div>
             <div class="row justify-content-center">

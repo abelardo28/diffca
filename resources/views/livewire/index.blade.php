@@ -7,8 +7,8 @@
                 <div class="hero-slider-item">
                     <div class="row">
                         <div class="col-md-8">
-                            <h1 class="text-white" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".1">Compromiso y Confianza</h1>
-                            <p class="text-muted mb-4" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exer</p>
+                            <h1 class="text-white" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".1">Responsabilidad y Confianza</h1>
+                            <p class="text-muted mb-4" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".4">Nos equipamos por un grupo de expertos profesionales especializados en cada una de las áreas que cubrimos sobre nuestros servicios</p>
                             <a href="contact.html" class="btn btn-primary" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".7">Nosotros</a>
                         </div>
                     </div>
@@ -16,8 +16,8 @@
                 <div class="hero-slider-item">
                     <div class="row">
                         <div class="col-md-8">
-                            <h1 class="text-white" data-animation-out="fadeOutUp" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInDown" data-delay-in=".1">Compromiso y Confianza</h1>
-                            <p class="text-muted mb-4" data-animation-out="fadeOutUp" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInDown" data-delay-in=".4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exer</p>
+                            <h1 class="text-white" data-animation-out="fadeOutUp" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInDown" data-delay-in=".1">Seguridad y Compromiso</h1>
+                            <p class="text-muted mb-4" data-animation-out="fadeOutUp" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInDown" data-delay-in=".4">Nos mantenemos al margen y actualizacipones de temas en los que nos especializamos para brindarles un servicio de calidad a nuestros clientes</p>
                             <a href="contact.html" class="btn btn-primary" data-animation-out="fadeOutUp" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInDown" data-delay-in=".7">Servicios</a>
                         </div>
                     </div>
@@ -25,8 +25,8 @@
                 <div class="hero-slider-item">
                     <div class="row">
                         <div class="col-md-8">
-                        <h1 class="text-white" data-animation-out="fadeOutDown" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">Compromiso y Confianza</h1>
-                            <p class="text-muted mb-4" data-animation-out="fadeOutDown" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exer</p>
+                        <h1 class="text-white" data-animation-out="fadeOutDown" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">Honradez y Honestidad</h1>
+                            <p class="text-muted mb-4" data-animation-out="fadeOutDown" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".4">Si te encuentras interesado en contratar alguno de nuestros servicios, comunicate con nosotros y procuraremos contactárte lo más pronto posible para solucionar tus problemas.</p>
                             <a href="contact.html" class="btn btn-primary" data-animation-out="fadeOutDown" data-delay-out="5" data-duration-in=".3" data-animation-in="zoomIn" data-delay-in=".7">Contacto</a>
                         </div>
                     </div>
@@ -281,7 +281,9 @@
                 @foreach($blogs as $blog)
                 <article class="col-lg-4 col-sm-6 mb-5 mb-lg-0">
                     <div class="card rounded-0 border-bottom border-primary border-top-0 border-left-0 border-right-0 hover-shadow">
-                        <img class="card-img-top rounded-0" src="images/blog/post-1.jpg" alt="Post thumb">
+                        @if($blog->image)
+                        <img class="card-img-top rounded-0" src="{{ asset('blog-images/'.$blog->image) }}" alt="{{ $blog->title }}">
+                        @endif
                         <div class="card-body">
                             <ul class="list-inline mb-3">
                                 <li class="list-inline-item mr-3 ml-0">{{ $blog->created_at->diffForHumans() }}</li>
@@ -290,7 +292,7 @@
                             <a href="{{ route('blog-detail', $blog->url) }}">
                                 <h4 class="card-title">{{ $blog->title }}</h4>
                             </a>
-                            <p class="card-text">{{ substr($blog->content, 0, 140) }}...</p>
+                            <p class="card-text">@php echo substr($blog->content, 0, 140) @endphp...</p>
                             <a href="{{ route('blog-detail', $blog->url) }}" class="btn btn-primary btn-sm">Leer más</a>
                         </div>
                     </div>

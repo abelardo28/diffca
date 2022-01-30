@@ -60,6 +60,8 @@
 			$('.filter-controls li').removeClass('active');
 			$(this).addClass('active');
 		});
+		//Add class to list
+		$('.blog-content ul').addClass('list-styled');
 	});
 
 	//  Count Up

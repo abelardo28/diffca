@@ -9,7 +9,7 @@
                         <li class="list-inline-item"><a class="h2 text-primary font-secondary">Nosotros</a></li>
                         <li class="list-inline-item text-white h3 font-secondary"></li>
                     </ul>
-                    <p class="text-lighten">Our courses offer a good compromise between the continuous assessment favoured by some universities and the emphasis placed on final exams by others.</p>
+                    <p class="text-lighten">Conoce más a detalle a nuestra empresa y de los valores que nos enriquecen.</p>
                 </div>
             </div>
         </div>

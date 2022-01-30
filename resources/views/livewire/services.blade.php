@@ -9,7 +9,7 @@
                         <li class="list-inline-item"><a class="h2 text-primary font-secondary" href="@@page-link">Servicios</a></li>
                         <li class="list-inline-item text-white h3 font-secondary @@nasted"></li>
                     </ul>
-                    <p class="text-lighten">Our courses offer a good compromise between the continuous assessment favoured by some universities and the emphasis placed on final exams by others.</p>
+                    <p class="text-lighten">Nuestros servicios son brindados por expertos en la materia.</p>
               </div>
             </div>
         </div>

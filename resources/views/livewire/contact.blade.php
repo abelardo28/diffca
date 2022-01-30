@@ -9,7 +9,7 @@
                         <li class="list-inline-item"><a class="h2 text-primary font-secondary">Contacto</a></li>
                         <li class="list-inline-item text-white h3 font-secondary"></li>
                     </ul>
-                    <p class="text-lighten">Do you have other questions? Don't worry, there aren't any dumb questions. Just fill out the form below and we'll get back to you as soon as possible.</p>
+                    <p class="text-lighten">Si tienes dudas o preguntas acerca de nuestros servicios, contáctate ahora mismo con nosotros.</p>
                 </div>
             </div>
         </div>
@@ -33,7 +33,7 @@
                     </form>
                 </div>
                 <div class="col-lg-5">
-                    <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit recusandae voluptates doloremque veniam temporibus porro culpa ipsa, nisi soluta minima saepe laboriosam debitis nesciunt. Dolore, labore. Accusamus nulla sed cum aliquid exercitationem debitis error harum porro maxime quo iusto aliquam dicta modi earum fugiat, vel possimus commodi, deleniti et veniam, fuga ipsum praesentium.</p>
+                    <p class="mb-5">Eentendemos tus necesidades y tus problemas, es por eso que mantenemos a un equipo de trabajo especializado para brindarte una buena atención y contar con tu satisfacción para seguir creciendo como empresa y tener la motivación suficiente para seguir apoyando a la sociedad en los temas que cubrimos.</p>
                     <a href="tel:+8802057843248" class="text-color h5 d-block">+52 844 000 0000</a>
                     <a href="mailto:contacto@diffca.com" class="mb-5 text-color h5 d-block">contacto@diffca.com</a>
                     <p>P.º de los Claveles 485, Residencial San Patricio, 26450 Coahuila, Coah.</p>
