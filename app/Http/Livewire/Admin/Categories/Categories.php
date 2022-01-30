@@ -27,6 +27,10 @@ class Categories extends Component
     }
 
     public function store(){
+        $this->validate([
+            'name' => 'required',
+            'description' => 'required',
+        ]);
         Category::create([
             'name' => $this->name,
             'description' => $this->description

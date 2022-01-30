@@ -110,30 +110,30 @@
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
+                    {{-- <h4 class="text-white mb-5">SUPPORT</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><a class="text-color" href="#">Forums</a></li>
+                        <li class="mb-3"><a class="text-color" href="#">Documentation</a></li>
+                        <li class="mb-3"><a class="text-color" href="#">Language</a></li>
+                        <li class="mb-3"><a class="text-color" href="#">Release Status</a></li>
+                    </ul> --}}
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
+                    {{-- <h4 class="text-white mb-5">LINKS</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><a class="text-color" href="{{ route('services') }}">Courses</a></li>
+                        <li class="mb-3"><a class="text-color" href="event.html">Events</a></li>
+                        <li class="mb-3"><a class="text-color" href="gallary.html">Gallary</a></li>
+                        <li class="mb-3"><a class="text-color" href="faqs.html">FAQs</a></li>
+                    </ul> --}}
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
                     <h4 class="text-white mb-5">MENÚ</h4>
                     <ul class="list-unstyled">
                         <li class="mb-3"><a class="text-color" href="{{ route('about') }}">Nosotros</a></li>
                         <li class="mb-3"><a class="text-color" href="{{ route('services') }}">Servicios</a></li>
                         <li class="mb-3"><a class="text-color" href="{{ route('contact') }}">Contacto</a></li>
                         <li class="mb-3"><a class="text-color" href="{{ route('blog') }}">Blog</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
-                    <h4 class="text-white mb-5">LINKS</h4>
-                    <ul class="list-unstyled">
-                        <li class="mb-3"><a class="text-color" href="{{ route('services') }}">Courses</a></li>
-                        <li class="mb-3"><a class="text-color" href="event.html">Events</a></li>
-                        <li class="mb-3"><a class="text-color" href="gallary.html">Gallary</a></li>
-                        <li class="mb-3"><a class="text-color" href="faqs.html">FAQs</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">
-                    <h4 class="text-white mb-5">SUPPORT</h4>
-                    <ul class="list-unstyled">
-                        <li class="mb-3"><a class="text-color" href="#">Forums</a></li>
-                        <li class="mb-3"><a class="text-color" href="#">Documentation</a></li>
-                        <li class="mb-3"><a class="text-color" href="#">Language</a></li>
-                        <li class="mb-3"><a class="text-color" href="#">Release Status</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0">

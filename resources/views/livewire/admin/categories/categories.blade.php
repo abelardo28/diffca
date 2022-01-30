@@ -1,7 +1,7 @@
 @section('title', 'Panel de Administración')
 
 <div>
-    <section class="page-title-section overlay" data-background="{{ asset('images/backgrounds/page-title.jpg') }}" style="background-image: url(&quot;images/backgrounds/page-title.jpg&quot;);">
+    <section wire:ignore class="page-title-section overlay" data-background="{{ asset('images/backgrounds/page-title.jpg') }}" style="background-image: url(&quot;images/backgrounds/page-title.jpg&quot;);">
         <div class="container">
             <div class="row">
                 <div class="col-md-8">

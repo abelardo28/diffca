@@ -1,7 +1,7 @@
 @section('title', 'Inicio')
 
 <div>
-    <section class="hero-section overlay bg-cover" data-background="{{ asset('images/banner.jpg') }}">
+    <section wire:ignore class="hero-section overlay bg-cover" data-background="{{ asset('images/banner.jpg') }}">
         <div class="container">
             <div class="hero-slider">
                 <div class="hero-slider-item">

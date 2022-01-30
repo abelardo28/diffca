@@ -1,7 +1,7 @@
 @section('title', 'Contacto')
 
 <div>
-    <section class="page-title-section overlay" data-background="images/backgrounds/page-title.jpg">
+    <section wire:ignore class="page-title-section overlay" data-background="images/backgrounds/page-title.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
@@ -24,11 +24,20 @@
             </div>
             <div class="row">
                 <div class="col-lg-7 mb-4 mb-lg-0">
-                    <form action="#">
-                        <input type="text" class="form-control mb-3" id="name" name="name" placeholder="Nombre">
-                        <input type="email" class="form-control mb-3" id="mail" name="mail" placeholder="Correo Electrónico">
-                        <input type="text" class="form-control mb-3" id="subject" name="subject" placeholder="Asunto">
-                        <textarea name="message" id="message" class="form-control mb-3" placeholder="Mensaje"></textarea>
+                    <form wire:submit.prevent="send()" autocomplete="off">
+                        @if($errors->any())
+                        <div class="alert alert-danger">
+                            <ul class="mb-0 pl-0">
+                                @foreach ($errors->all() as $error)
+                                    <li><i class="mdi mdi-close pr-2"></i> {{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        @endif
+                        <input type="text" class="form-control mb-3" id="name" wire:model.defer="name" name="name" placeholder="Nombre">
+                        <input type="email" class="form-control mb-3" id="email" wire:model.defer="email" name="email" placeholder="Correo Electrónico">
+                        <input type="text" class="form-control mb-3" id="phone" wire:model.defer="phone" name="phone" placeholder="Teléfono/Celular">
+                        <textarea name="message" id="message" wire:model.defer="message" class="form-control mb-3" placeholder="Mensaje"></textarea>
                         <button type="submit" value="send" class="btn btn-primary">Enviar Mensaje</button>
                     </form>
                 </div>

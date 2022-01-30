@@ -1,7 +1,7 @@
 @section('title', $blog->title)
 
 <div>
-    <section class="page-title-section overlay" data-background="{{ asset('images/backgrounds/page-title.jpg') }}">
+    <section wire:ignore class="page-title-section overlay" data-background="{{ asset('images/backgrounds/page-title.jpg') }}">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
