@@ -24,9 +24,8 @@ class ChartController extends Controller
         return $response;
     }
 
-    public function json_inflacion(){
-        $last_date = date("Y-m-d",strtotime(date("d-m-Y")."- 32 month"));
-        $response = Util::getGuzzleClient('https://www.banxico.org.mx', 'GET', "/SieAPIRest/service/v1/series/SP1/datos/{$last_date}/".date('Y-m-d'));
+    public function json_tiie(){
+        $response = Util::getGuzzleClient('https://www.banxico.org.mx', 'GET', '/SieAPIRest/service/v1/series/SF43783/datos/oportuno');
         return $response;
     }
 

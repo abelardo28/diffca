@@ -47,6 +47,9 @@
                         <li class="nav-item {{ Request::is('admin/home') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('home') }}">Inicio</a>
                         </li>
+                        <li class="nav-item {{ Request::is('admin/catalogo-de-valores') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ route('catalog-values') }}">Catálogo de Valores</a>
+                        </li>
                         <li class="nav-item {{ Request::is('admin/categorias') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('categories') }}">Categorias</a>
                         </li>

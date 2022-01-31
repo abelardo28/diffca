@@ -7,6 +7,7 @@ use App\Http\Livewire\Blog;
 use App\Http\Livewire\BlogDetail;
 use App\Http\Livewire\Contact;
 use App\Http\Livewire\Admin\Home\Home;
+use App\Http\Livewire\Admin\CatalogValues\CatalogValues;
 use App\Http\Livewire\Admin\Categories\Categories;
 use App\Http\Livewire\Admin\News\News;
 use Illuminate\Support\Facades\Route;
@@ -36,6 +37,7 @@ Route::get('/contacto', Contact::class)->name('contact');
 
 Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::get('/home', Home::class)->name('home');
+    Route::get('/catalogo-de-valores', CatalogValues::class)->name('catalog-values');
     Route::get('/categorias', Categories::class)->name('categories');
     Route::get('/noticias', News::class)->name('news');
 });
@@ -43,3 +45,4 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
 Route::get('json-tipo-cambio', [App\Http\Controllers\ChartController::class, 'json_tipo_cambio'])->name('tipo-cambio');
 Route::get('json-inpc', [App\Http\Controllers\ChartController::class, 'json_inpc'])->name('inpc');
 Route::get('json-udis', [App\Http\Controllers\ChartController::class, 'json_udis'])->name('udis');
+Route::get('json-tiie', [App\Http\Controllers\ChartController::class, 'json_tiie'])->name('tiie');

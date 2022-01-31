@@ -19,6 +19,17 @@
                 <div class="col-lg-4 col-sm-6 mb-5">
                     <div class="card p-0 border-primary rounded-0 hover-shadow">
                         <div class="card-body">
+                            <a href="{{ route('catalog-values') }}">
+                                <h4 class="card-title">Catálogo de Valores</h4>
+                            </a>
+                            <p class="card-text mb-4"> Gestión de valores representativos financieros.</p>
+                            <a href="{{ route('catalog-values') }}" class="btn btn-primary btn-sm">Ir al Módulo</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 mb-5">
+                    <div class="card p-0 border-primary rounded-0 hover-shadow">
+                        <div class="card-body">
                             <a href="{{ route('categories') }}">
                                 <h4 class="card-title">Categorías</h4>
                             </a>

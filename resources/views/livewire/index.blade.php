@@ -66,23 +66,19 @@
                             <small class="text-secondary">Act. </small><span class="font-weight-bold" id="date-udis">0</span>
                         </div>
                         <div class="col-sm-6 col-xl-5 mb-xl-4 mb-lg-2 mb-2 text-center text-sm-left">
-                            <h4 class="mb-xl-2 mb-lg-2 mb-2">Inflación</h4>
+                            <h4 class="mb-xl-2 mb-lg-2 mb-2">TIIE</h4>
                             <small class="text-secondary">Valor:</small>
-                            <h2 class="text-primary"> 278.802</h2>
-                            <small class="text-secondary">Act. </small><span class="font-weight-bold" id="last-date-tipo-cambio">24/01/2022</span>
+                            <h2 class="text-primary" id="value-tiie"> 0</h2>
+                            <small class="text-secondary">Act. </small><span class="font-weight-bold" id="date-tiie">0</span>
                         </div>
+                        @foreach($values as $value)
                         <div class="col-sm-6 col-xl-5 mb-xl-4 mb-lg-2 mb-2 text-center text-sm-left">
-                            <h4 class="mb-xl-2 mb-lg-2 mb-2">Recargos de Mora</h4>
+                            <h4 class="mb-xl-2 mb-lg-2 mb-2">{{ $value->type }}</h4>
                             <small class="text-secondary">Valor:</small>
-                            <h2 class="text-primary"> 1.47%</h2>
-                            <small class="text-secondary">Act. </small><span class="font-weight-bold" id="last-date-tipo-cambio">24/01/2022</span>
+                            <h2 class="text-primary"> {{ $value->value }}{{ $value->symbol }}</h2>
+                            <small class="text-secondary">Act. </small><span class="font-weight-bold" id="last-date-tipo-cambio">{{ date_format(date_create($value->updated_date), 'd/m/Y') }}</span>
                         </div>
-                        <div class="col-sm-6 col-xl-5 mb-xl-4 mb-lg-2 mb-2 text-center text-sm-left">
-                            <h4 class="mb-xl-2 mb-lg-2 mb-2">Recargos Plazo</h4>
-                            <small class="text-secondary">Valor:</small>
-                            <h2 class="text-primary"> 0.98%</h2>
-                            <small class="text-secondary">Act. </small><span class="font-weight-bold" id="last-date-tipo-cambio">24/01/2022</span>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -399,9 +395,19 @@ $(function(){
         url : "{{ route('udis') }}",
         dataType : 'json',
         success : function(data) {
-            console.log(data.at(-1)[0]);
             $("#value-udis").html(data.at(-1)[1]);
             $("#date-udis").html(data.at(-1)[0]);
+        }
+    });
+});
+
+$(function(){
+    $.ajax({
+        url : "{{ route('tiie') }}",
+        dataType : 'json',
+        success : function(data) {
+            $("#value-tiie").html(data.at(-1)[1]);
+            $("#date-tiie").html(data.at(-1)[0]);
         }
     });
 });
