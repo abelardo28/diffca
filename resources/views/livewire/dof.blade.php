@@ -40,12 +40,14 @@
             <div class="row mt-3">
                 <div class="col-12">
                     @foreach($response as $key => $resp)
-                    <div class="card mb-2">
-                        <div class="card-title bg-primary text-white font-weight-bold p-3">{{ $key }}</div>
-                        <div class="card-body py-1">
-                        @foreach($resp as $notes)
-                            <p class="text-justify">{{ $notes->note }}</p>
-                        @endforeach
+                    <div class="card mb-3">
+                        <div class="card-title bg-primary text-white font-weight-bold p-3 mb-0">{{ $key }}</div>
+                        <div class="card-body p-0">
+                            <ul class="list-group list-group-flush">
+                            @foreach($resp as $notes)
+                                <li class="list-group-item">{{ $notes->note }}</li>
+                            @endforeach
+                            </ul>
                         </div>
                     </div>
                     @endforeach
