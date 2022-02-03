@@ -1,7 +1,7 @@
 @section('title', 'Panel de Administración')
 
 <div>
-    <section wire:ignore class="page-title-section overlay" data-background="{{ asset('images/backgrounds/page-title.jpg') }}" style="background-image: url(&quot;images/backgrounds/page-title.jpg&quot;);">
+    <section wire:ignore class="page-title-section overlay" data-background="{{ asset('images/backgrounds/page-title.jpg') }}">
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
@@ -33,9 +33,9 @@
                             <a href="course-single.html">
                                 <h4 class="card-title">{{ $new->title }}</h4>
                             </a>
-                            <p class="card-text mb-1"> {{ substr($new->content, 0, 140) }}...</p>
+                            <p class="card-text mb-1">{!! substr($new->content, 0, 140) !!}...</p>
                             <span class="badge bg-secondary text-white">{{ $new->category->name }}</span><br>
-                            <button class="btn btn-primary btn-sm mt-2" wire:click.prevent="edit({{ $new->id }})">Editar noticia</button>
+                            <a role="button" class="btn btn-primary btn-sm mt-2" href="{{ route('show-new', $new->id) }}">Revisar noticia</a>
                             <button type="button" class="btn btn-danger btn-sm float-right mt-2" wire:click="delete({{ $new->id }})" onclick="confirm('¿Está seguro de eliminar la noticia?') || event.stopImmediatePropagation()">
                                 <i class="ti-trash"></i>
                             </button>
@@ -47,11 +47,21 @@
         </div>
     </section>
     @include('livewire.admin.news.new-new')
-    @include('livewire.admin.news.edit-new')
 </div>
-{{-- 
 @section('scripts')
-<script type="text/javascript">
-    ClassicEditor.create(document.querySelector('textarea[name=content]'));
-</script>
-@endsection --}}
+    <script src="https://cdn.ckeditor.com/ckeditor5/31.1.0/classic/ckeditor.js"></script>
+    <script type="text/javascript">
+        ClassicEditor.create(document.querySelector('textarea[name=content]'))
+        .then(function(editor){
+            editor.model.document.on('change:data', () => {
+                @this.set('content', editor.getData());
+            });
+            Livewire.on('resetContent', () => {
+                editor.setData('');
+            })
+        })
+        .catch(error => {
+            console.log(error);
+        });
+    </script>
+@endsection

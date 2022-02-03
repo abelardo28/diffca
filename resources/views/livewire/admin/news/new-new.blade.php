@@ -20,7 +20,7 @@
                         </div>
                     </div>
                     @endif
-                    <div class="col-12" wire:ignore>
+                    <div class="col-12">
                         <select class="form-control mb-3" name="category" wire:model.defer="category">
                             <option value="0">Seleccione la categoria</option>
                             @foreach($categories as $category)
@@ -31,8 +31,8 @@
                     <div class="col-12">
                         <input type="text" class="form-control mb-3" name="title" wire:model.defer="title" placeholder="Título de la noticia">
                     </div>
-                    <div class="col-12">
-                        <textarea class="form-control mb-3" rows="4" name="content" wire:model.defer="content"></textarea>
+                    <div class="col-12" wire:ignore>
+                        <textarea class="form-control mb-3" name="content" wire:model.defer="content"></textarea>
                     </div>
                     <div class="col-12">
                         <input type="file" class="form-control-file mb-3" name="image" wire:model.defer="image">

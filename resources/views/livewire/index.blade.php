@@ -35,52 +35,29 @@
         </div>
     </section>
 
-    <section class="bg-gray overflow-md-hidden">
-        <div class="container-fluid p-0">
-            <div class="row no-gutters">
-                <div class="col-xl-4 col-lg-5 align-self-end">
-                    {{-- <img class="img-fluid w-100" src="images/banner/banner-feature.png" alt="banner-feature"> --}}
-                </div>
-                <div class="col-xl-8 col-lg-7">
-                    <div class="row feature-blocks bg-gray justify-content-between">
-                        <div class="col-sm-6 col-xl-5 mb-xl-2 mb-lg-1 mb-1 text-center text-sm-left">
-                            <h4 class="mb-xl-2 mb-lg-2 mb-2">Tipo de Cambio</h4>
-                            <small class="text-secondary">Valor: </small><span class="font-weight-bold" id="last-value-tipo-cambio">0</span>
-                            <span class="float-right"><small class="text-secondary">Act. </small><span class="font-weight-bold" id="last-date-tipo-cambio">0</span></span>
-                            <figure class="highcharts-figure">
-                                <div id="container-tipo-cambio"></div>
-                            </figure>
+    <section class="section pb-0">
+        <div class="container">
+            <div class="row justify-content-center">
+                @foreach($blogs as $blog)
+                <article class="col-lg-4 col-sm-6 mb-5 mb-lg-0">
+                    <div class="card rounded-0 border-bottom border-primary border-top-0 border-left-0 border-right-0 hover-shadow">
+                        @if($blog->image)
+                        <img class="card-img-top rounded-0" src="{{ asset('blog-images/'.$blog->image) }}" alt="{{ $blog->title }}">
+                        @endif
+                        <div class="card-body">
+                            <ul class="list-inline mb-3">
+                                <li class="list-inline-item mr-3 ml-0">{{ $blog->created_at->diffForHumans() }}</li>
+                                <li class="list-inline-item mr-3 ml-0">Por {{ $blog->user->name }}</li>
+                            </ul>
+                            <a href="{{ route('blog-detail', $blog->url) }}">
+                                <h4 class="card-title">{{ $blog->title }}</h4>
+                            </a>
+                            <p class="card-text">{!! substr($blog->content, 0, 100) !!}...</p>
+                            <a href="{{ route('blog-detail', $blog->url) }}" class="btn btn-primary btn-sm">Leer más</a>
                         </div>
-                        <div class="col-sm-6 col-xl-5 mb-xl-2 mb-lg-1 mb-1 text-center text-sm-left">
-                            <h4 class="mb-xl-2 mb-lg-2 mb-2">INPC</h4>
-                            <small class="text-secondary">Valor: </small><span class="font-weight-bold" id="last-value-inpc">0</span>
-                            <span class="float-right"><small class="text-secondary">Act. </small><span class="font-weight-bold" id="last-date-inpc">0</span></span>
-                            <figure class="highcharts-figure">
-                                <div id="container-inpc"></div>
-                            </figure>
-                        </div>
-                        <div class="col-sm-6 col-xl-5 mb-xl-4 mb-lg-2 mb-2 text-center text-sm-left">
-                            <h4 class="mb-xl-2 mb-lg-2 mb-2">UDIS</h4>
-                            <small class="text-secondary">Valor:</small>
-                            <h2 class="text-primary" id="value-udis"> 0</h2>
-                            <small class="text-secondary">Act. </small><span class="font-weight-bold" id="date-udis">0</span>
-                        </div>
-                        <div class="col-sm-6 col-xl-5 mb-xl-4 mb-lg-2 mb-2 text-center text-sm-left">
-                            <h4 class="mb-xl-2 mb-lg-2 mb-2">TIIE</h4>
-                            <small class="text-secondary">Valor:</small>
-                            <h2 class="text-primary" id="value-tiie"> 0</h2>
-                            <small class="text-secondary">Act. </small><span class="font-weight-bold" id="date-tiie">0</span>
-                        </div>
-                        @foreach($values as $value)
-                        <div class="col-sm-6 col-xl-5 mb-xl-4 mb-lg-2 mb-2 text-center text-sm-left">
-                            <h4 class="mb-xl-2 mb-lg-2 mb-2">{{ $value->type }}</h4>
-                            <small class="text-secondary">Valor:</small>
-                            <h2 class="text-primary"> {{ $value->value }}{{ $value->symbol }}</h2>
-                            <small class="text-secondary">Act. </small><span class="font-weight-bold" id="last-date-tipo-cambio">{{ date_format(date_create($value->updated_date), 'd/m/Y') }}</span>
-                        </div>
-                        @endforeach
                     </div>
-                </div>
+                </article>
+                @endforeach
             </div>
         </div>
     </section>
@@ -96,6 +73,51 @@
                 <div class="col-md-6 order-1 order-md-2 mb-4 mb-md-0">
                     <img class="img-fluid w-100" src="{{ asset('images/equipo.jpg') }}" alt="equipo">
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-sm-6 col-xl-6 mb-xl-2 mb-lg-1 mb-1 text-center text-sm-left">
+                    <h4 class="mb-xl-2 mb-lg-2 mb-2">Tipo de Cambio</h4>
+                    <small class="text-secondary">Valor: </small><span class="font-weight-bold" id="last-value-tipo-cambio">0</span>
+                    <span class="float-right"><small class="text-secondary">Act. </small><span class="font-weight-bold" id="last-date-tipo-cambio">0</span></span>
+                    <figure class="highcharts-figure">
+                        <div id="container-tipo-cambio"></div>
+                    </figure>
+                </div>
+                <div class="col-sm-6 col-xl-6 mb-xl-2 mb-lg-1 mb-1 text-center text-sm-left">
+                    <h4 class="mb-xl-2 mb-lg-2 mb-2">INPC</h4>
+                    <small class="text-secondary">Valor: </small><span class="font-weight-bold" id="last-value-inpc">0</span>
+                    <span class="float-right"><small class="text-secondary">Act. </small><span class="font-weight-bold" id="last-date-inpc">0</span></span>
+                    <figure class="highcharts-figure">
+                        <div id="container-inpc"></div>
+                    </figure>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-sm-3 col-xl-3 mb-xl-4 mb-lg-2 mb-2 text-center text-sm-left">
+                    <h4 class="mb-xl-2 mb-lg-2 mb-2">UDIS</h4>
+                    <small class="text-secondary">Valor:</small>
+                    <h2 class="text-primary" id="value-udis"> 0</h2>
+                    <small class="text-secondary">Act. </small><span class="font-weight-bold" id="date-udis">0</span>
+                </div>
+                <div class="col-sm-3 col-xl-3 mb-xl-4 mb-lg-2 mb-2 text-center text-sm-left">
+                    <h4 class="mb-xl-2 mb-lg-2 mb-2">TIIE</h4>
+                    <small class="text-secondary">Valor:</small>
+                    <h2 class="text-primary" id="value-tiie"> 0</h2>
+                    <small class="text-secondary">Act. </small><span class="font-weight-bold" id="date-tiie">0</span>
+                </div>
+                @foreach($values as $value)
+                <div class="col-sm-3 col-xl-3 mb-xl-4 mb-lg-2 mb-2 text-center text-sm-left">
+                    <h4 class="mb-xl-2 mb-lg-2 mb-2">{{ $value->type }}</h4>
+                    <small class="text-secondary">Valor:</small>
+                    <h2 class="text-primary"> {{ $value->value }}{{ $value->symbol }}</h2>
+                    <small class="text-secondary">Act. </small><span class="font-weight-bold" id="last-date-tipo-cambio">{{ date_format(date_create($value->updated_date), 'd/m/Y') }}</span>
+                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -234,69 +256,6 @@
             </div>
         </div>
     </section>
-
-    <section class="section-sm bg-primary">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-sm-6 mb-4 mb-md-0">
-                    <div class="text-center">
-                        <h2 class="count text-white" data-count="60">60</h2>
-                        <h5 class="text-white">SOLUCIONES</h5>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 mb-4 mb-md-0">
-                    <div class="text-center">
-                        <h2 class="count text-white" data-count="50">50</h2>
-                        <h5 class="text-white">AUDITORÍAS</h5>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 mb-4 mb-md-0">
-                    <div class="text-center">
-                        <h2 class="count text-white" data-count="100">100</h2>
-                        <h5 class="text-white">CASOS DE ÉXITO</h5>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 mb-4 mb-md-0">
-                    <div class="text-center">
-                        <h2 class="count text-white" data-count="3737">3737</h2>
-                        <h5 class="text-white">CLIENTES SATISFECHOS</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section pt-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h2 class="section-title">Noticias</h2>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                @foreach($blogs as $blog)
-                <article class="col-lg-4 col-sm-6 mb-5 mb-lg-0">
-                    <div class="card rounded-0 border-bottom border-primary border-top-0 border-left-0 border-right-0 hover-shadow">
-                        @if($blog->image)
-                        <img class="card-img-top rounded-0" src="{{ asset('blog-images/'.$blog->image) }}" alt="{{ $blog->title }}">
-                        @endif
-                        <div class="card-body">
-                            <ul class="list-inline mb-3">
-                                <li class="list-inline-item mr-3 ml-0">{{ $blog->created_at->diffForHumans() }}</li>
-                                <li class="list-inline-item mr-3 ml-0">Por {{ $blog->user->name }}</li>
-                            </ul>
-                            <a href="{{ route('blog-detail', $blog->url) }}">
-                                <h4 class="card-title">{{ $blog->title }}</h4>
-                            </a>
-                            <p class="card-text">@php echo substr($blog->content, 0, 140) @endphp...</p>
-                            <a href="{{ route('blog-detail', $blog->url) }}" class="btn btn-primary btn-sm">Leer más</a>
-                        </div>
-                    </div>
-                </article>
-                @endforeach
-            </div>
-        </div>
-    </section>
 <div>
 
 @section('scripts')
@@ -309,7 +268,7 @@ Highcharts.getJSON(
             exporting: {enabled:false},
             credits: {enabled:false},
             chart: {
-                backgroundColor: '#f8f8f8',
+                backgroundColor: '#ffffff',
                 height: 150,
                 zoomType: 'x'
             },
@@ -353,7 +312,7 @@ Highcharts.getJSON(
             exporting: {enabled:false},
             credits: {enabled:false},
             chart: {
-                backgroundColor: '#f8f8f8',
+                backgroundColor: '#ffffff',
                 height: 150,
                 zoomType: 'x'
             },

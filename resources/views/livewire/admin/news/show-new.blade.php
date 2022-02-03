@@ -35,35 +35,26 @@
                     <h2>{{ $blog->title }}</h2>
                     <p>{!! $blog->content !!}</p>
                 </div>
+                <button class="btn btn-primary btn-sm mt-2" wire:click="edit()">Editar noticia</button>
             </div>
         </div>
     </section>
-
-    {{-- <section class="section">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h2 class="section-title">Recientes</h2>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <article class="col-lg-4 col-sm-6 mb-5 mb-lg-0">
-                    <div class="card rounded-0 border-bottom border-primary border-top-0 border-left-0 border-right-0 hover-shadow">
-                        <img class="card-img-top rounded-0" src="{{ asset('images/blog/post-1.jpg') }}" alt="Post thumb">
-                        <div class="card-body">
-                            <ul class="list-inline mb-3">
-                                <li class="list-inline-item mr-3 ml-0">August 28, 2018</li>
-                                <li class="list-inline-item mr-3 ml-0">By Somrat Sorkar</li>
-                            </ul>
-                            <a href="blog-single.html">
-                                <h4 class="card-title">Lorem ipsum dolor amet, adipisicing eiusmod tempor.</h4>
-                            </a>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicin...</p>
-                            <a href="blog-single.html" class="btn btn-primary btn-sm">Leer más</a>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section> --}}
+    @include('livewire.admin.news.edit-new')
 </div>
+@section('scripts')
+    <script src="https://cdn.ckeditor.com/ckeditor5/31.1.0/classic/ckeditor.js"></script>
+    <script type="text/javascript">
+        ClassicEditor.create(document.querySelector('textarea[name=content]'))
+        .then(function(editor){
+            editor.model.document.on('change:data', () => {
+                @this.set('content', editor.getData());
+            });
+            Livewire.on('resetContent', () => {
+                editor.setData('');
+            })
+        })
+        .catch(error => {
+            console.log(error);
+        });
+    </script>
+@endsection

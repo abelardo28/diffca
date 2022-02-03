@@ -24,7 +24,7 @@
                         <input type="text" class="form-control mb-3" id="type" wire:model.defer="type" placeholder="Tipo de valor">
                     </div>
                     <div class="col-12">
-                        <textarea class="form-control mb-3" rows="2" wire:model.defer="description" placeholder="Descripción del valor"></textarea>
+                        <textarea class="form-control mb-3" wire:model.defer="description" placeholder="Descripción del valor"></textarea>
                     </div>
                     <div class="col-12">
                         <input type="text" class="form-control mb-3" id="value" wire:model.defer="value" placeholder="Valor representativo">

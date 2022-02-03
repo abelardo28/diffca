@@ -34,7 +34,7 @@
                                     <a href="{{ route('blog-detail', $blog->url) }}">
                                         <h4 class="card-title">{{ $blog->title }}</h4>
                                     </a>
-                                    <p class="card-text mb-1">@php echo substr($blog->content, 0, 160) @endphp...</p>
+                                    <p class="card-text mb-1">{!! substr($blog->content, 0, 160) !!}...</p>
                                     <span class="badge bg-secondary text-white">{{ $blog->category->name }}</span><br>
                                     <a href="{{ route('blog-detail', $blog->url) }}" class="btn btn-primary btn-sm mt-2">Leer más</a>
                                 </div>
