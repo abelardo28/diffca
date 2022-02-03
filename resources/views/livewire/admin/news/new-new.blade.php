@@ -34,8 +34,8 @@
                     <div class="col-12" wire:ignore>
                         <textarea class="form-control mb-3" name="content" wire:model.defer="content"></textarea>
                     </div>
-                    <div class="col-12">
-                        <input type="file" class="form-control-file mb-3" name="image" wire:model.defer="image">
+                    <div class="col-12 px-0 mt-3">
+                        <input type="file" class="form-control mb-3" name="image" wire:model.defer="image">
                     </div>
                     <div class="col-12">
                         <button type="submit" wire:loading.prevent="disabled" class="btn btn-primary">Guardar cambios</button>

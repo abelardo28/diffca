@@ -25,6 +25,18 @@ class Util {
         return json_decode(json_encode($info), true);
     }
 
+    public static function getGuzzleClientDof($url, $method, $action){
+        $client = new Client([
+            "base_uri" => $url
+        ]);
+        $response = $client->request(
+            'GET',
+            $action
+        )->getBody()->getContents();
+        $response = json_decode($response, true);
+        return json_decode(json_encode($response), false);
+    }
+
     public static function cleanString($str){
         $str = str_replace(
             array('á', 'à', 'ä', 'â', 'ª', 'Á', 'À', 'Â', 'Ä',
