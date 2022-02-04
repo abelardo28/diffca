@@ -20,7 +20,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="row">
-                        @foreach($blogs as $blog)
+                        @forelse($blogs as $blog)
                         <article class="col-lg-12 col-sm-6 mb-4">
                             <div class="card rounded-0 border border-primary hover-shadow">
                                 @if($blog->image)
@@ -44,7 +44,13 @@
                             </div>
                             <div class="row">
                         @endif
-                        @endforeach
+                        @empty
+                        <article class="col-lg-12 col-sm-6 mb-4">
+                            <div class="card rounded-0 border border-primary hover-shadow py-3">
+                                <p class="card-text text-center">No se encontraron blogs</p>
+                            </div>
+                        </article>
+                        @endforelse
                     </div>
                 </div>
                 <div class="col-md-4">

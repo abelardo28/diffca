@@ -14,7 +14,6 @@ class News extends Component
 
     protected $listeners = ['mount'];
     public $news, $categories;
-    public $blog;
     public $category, $title, $content, $image;
 
     public function mount(){
@@ -29,7 +28,6 @@ class News extends Component
 
     public function create(){
         $this->emit('open-modal', 'new-new');
-        $this->reset('category','title','content','image');
     }
 
     public function store(){

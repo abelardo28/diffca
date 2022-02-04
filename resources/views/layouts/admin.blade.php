@@ -85,6 +85,7 @@
 @livewireScripts
 <script src="{{ asset('plugins/jQuery/jquery.min.js') }}"></script>
 <script src="{{ asset('plugins/bootstrap/bootstrap.min.js') }}"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/31.1.0/classic/ckeditor.js"></script>
 <script src="{{ asset('plugins/slick/slick.min.js') }}"></script>
 <script src="{{ asset('plugins/aos/aos.js') }}"></script>
 <script src="{{ asset('plugins/venobox/venobox.min.js') }}"></script>

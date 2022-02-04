@@ -32,7 +32,7 @@
                         <input type="text" class="form-control mb-3" name="title" wire:model.defer="title" placeholder="Título de la noticia">
                     </div>
                     <div class="col-12" wire:ignore>
-                        <textarea class="form-control mb-3" name="content" wire:model.defer="content"></textarea>
+                        <textarea class="form-control mb-3" id="editor" name="content" wire:model.defer="content"></textarea>
                     </div>
                     <div class="col-12 px-0 mt-3">
                         <input type="file" class="form-control mb-3" name="image" wire:model.defer="image">

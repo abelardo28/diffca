@@ -46,18 +46,58 @@
             </div>
         </div>
     </section>
-    @include('livewire.admin.news.new-new')
+    <div wire:ignore.self class="modal fade" id="new-new" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content rounded-0 border-0 p-4">
+                <div class="modal-header border-0">
+                    <h3>Nueva Noticia</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    @if($errors->any())
+                    <div class="form-group">
+                        <div class="alert alert-danger">
+                            <ul class="mb-0 pl-0">
+                                @foreach ($errors->all() as $error)
+                                    <li><i class="mdi mdi-close pr-2"></i> {{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                    @endif
+                    <div class="form-group">
+                        <select class="form-control mb-3" name="category" wire:model.defer="category">
+                            <option value="0">Seleccione la categoria</option>
+                            @foreach($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control mb-3" name="title" wire:model.defer="title" placeholder="Título de la noticia">
+                    </div>
+                    <div class="form-group" wire:ignore>
+                        <textarea class="form-control mb-3" id="editor" name="content" wire:model.defer="content"></textarea>
+                    </div>
+                    <div class="form-group mt-3">
+                        <input type="file" class="form-control mb-3" name="image" wire:model.defer="image">
+                    </div>
+                    <div class="form-group">
+                        <button type="button" wire:click.prevent="store()" class="btn btn-primary">Guardar cambios</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 @section('scripts')
-    <script src="https://cdn.ckeditor.com/ckeditor5/31.1.0/classic/ckeditor.js"></script>
     <script type="text/javascript">
-        ClassicEditor.create(document.querySelector('textarea[name=content]'))
-        .then(function(editor){
+        ClassicEditor.create(document.querySelector('#editor'))
+        .then(editor => {
             editor.model.document.on('change:data', () => {
                 @this.set('content', editor.getData());
-            });
-            Livewire.on('resetContent', () => {
-                editor.setData('');
             })
         })
         .catch(error => {
