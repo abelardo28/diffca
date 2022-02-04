@@ -46,17 +46,26 @@
                         @endif
                         @endforeach
                     </div>
-                    {{-- <p><a role="button" class="btn btn-link" wire:click="showMore()">Mostrar más noticias</a></p> --}}
                 </div>
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5>Categorías</h5>
-                            <ul class="list-styled">
-                                @foreach($categories as $category)
-                                <li class="my-4 text-uppercase"><a role="button" class="text-secondary" wire:click="filterCategory({{ $category->id }})">{{ $category->name }}</a></li>
-                                @endforeach
-                            </ul>
+                            <h5 class="mb-4">Filtros</h5>
+                            <div class="form-group">
+                                <label>Categorías:</label>
+                                <select class="form-control" wire:model="category">
+                                    @foreach($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Ordenar:</label>
+                                <select class="form-control" wire:model="order_by">
+                                    <option value="DESC">Recientes</option>
+                                    <option value="ASC">Antiguos</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>

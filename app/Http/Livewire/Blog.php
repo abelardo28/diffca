@@ -9,22 +9,24 @@ use App\Models\Category;
 class Blog extends Component
 {
     public $blogs, $categories;
-    public $category, $take = 10;
+    public $category, $order_by = "DESC";
 
-    protected $listeners = ['filterCategory', 'showMore'];
+    protected $queryString = ['category','order_by'];
+
+    protected $listeners = ['showMore'];
 
     public function mount(){
-        $this->blogs = News::with(['category','user'])->where('status', 1)->latest()->get();
         $this->categories = Category::where('status', 1)->get();
     }
 
     public function render()
     {
+        $this->blogs = News::with(['category','user'])->where('status', 1)->when($this->category, function($query, $category){
+            $query->category($category);
+        })->when($this->order_by, function($query, $order_by){
+            $query->orderBy('created_at', $order_by);
+        })->get();
         return view('livewire.blog')->extends('layouts.app');
-    }
-
-    public function filterCategory($category){
-        $this->blogs = $this->blogs->where('category_id', $category);
     }
 
     public function showMore(){
