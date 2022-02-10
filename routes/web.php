@@ -26,31 +26,35 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', Index::class)->name('index');
+Route::middleware(['cors'])->group(function () {
 
-Route::get('/nosotros', About::class)->name('about');
+    Route::get('/', Index::class)->name('index');
 
-Route::get('/servicios', Services::class)->name('services');
+    Route::get('/nosotros', About::class)->name('about');
 
-Route::get('/indicadores', Indicators::class)->name('indicators');
+    Route::get('/servicios', Services::class)->name('services');
 
-Route::get('/dof', Dof::class)->name('dof');
+    Route::get('/indicadores', Indicators::class)->name('indicators');
 
-Route::get('/blog', Blog::class)->name('blog');
+    Route::get('/dof', Dof::class)->name('dof');
 
-Route::get('/blog/{url}', BlogDetail::class)->name('blog-detail');
+    Route::get('/blog', Blog::class)->name('blog');
 
-Route::get('/contacto', Contact::class)->name('contact');
+    Route::get('/blog/{url}', BlogDetail::class)->name('blog-detail');
 
-Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
-    Route::get('/home', Home::class)->name('home');
-    Route::get('/catalogo-de-valores', CatalogValues::class)->name('catalog-values');
-    Route::get('/categorias', Categories::class)->name('categories');
-    Route::get('/noticias', News::class)->name('news');
-    Route::get('/revisar-noticia/{blog}', ShowNew::class)->name('show-new');
+    Route::get('/contacto', Contact::class)->name('contact');
+
+    Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
+        Route::get('/home', Home::class)->name('home');
+        Route::get('/catalogo-de-valores', CatalogValues::class)->name('catalog-values');
+        Route::get('/categorias', Categories::class)->name('categories');
+        Route::get('/noticias', News::class)->name('news');
+        Route::get('/revisar-noticia/{blog}', ShowNew::class)->name('show-new');
+    });
+
+    Route::get('json-tipo-cambio', [App\Http\Controllers\ChartController::class, 'json_tipo_cambio'])->name('tipo-cambio');
+    Route::get('json-inpc', [App\Http\Controllers\ChartController::class, 'json_inpc'])->name('inpc');
+    Route::get('json-udis', [App\Http\Controllers\ChartController::class, 'json_udis'])->name('udis');
+    Route::get('json-tiie', [App\Http\Controllers\ChartController::class, 'json_tiie'])->name('tiie');
+
 });
-
-Route::get('json-tipo-cambio', [App\Http\Controllers\ChartController::class, 'json_tipo_cambio'])->name('tipo-cambio');
-Route::get('json-inpc', [App\Http\Controllers\ChartController::class, 'json_inpc'])->name('inpc');
-Route::get('json-udis', [App\Http\Controllers\ChartController::class, 'json_udis'])->name('udis');
-Route::get('json-tiie', [App\Http\Controllers\ChartController::class, 'json_tiie'])->name('tiie');
