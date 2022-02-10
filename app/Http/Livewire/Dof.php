@@ -10,11 +10,11 @@ use Carbon\Carbon;
 class Dof extends Component
 {
     public $date;
-    public $updatedDate;
+    public $currentDate;
 
     public function mount(){
         $this->date = Carbon::now()->format('Y-m-d');
-        $this->updatedDate = Carbon::now()->format('Y-m-d');
+        $this->currentDate = Carbon::now()->format('Y-m-d');
     }
 
     public function render()

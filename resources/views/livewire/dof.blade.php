@@ -26,14 +26,14 @@
                         </div>
                     </div>
                     <div class="col-md-6 text-center my-auto">
-                        <a href="http://dof.gob.mx/nota_to_pdf.php?fecha={{ date('d/m/Y') }}&edicion=MAT" target="_blank">
+                        <a href="http://dof.gob.mx/nota_to_pdf.php?fecha={{ date_format(date_create($date), 'd/m/Y') }}&edicion=MAT" target="_blank">
                             <i class="ti-file text-muted" style="font-size:50px;"></i>
                         </a>
                         <p class="font-weight-bold mb-0">Descargar Documento</p>
                     </div>
                     <div class="col-md-3 my-auto">
                         <p class="font-weight-bold mb-1">Actualización:</p>
-                        {{ $updatedDate }}
+                        {{ $currentDate }}
                     </div>
                 </div>
             </div>
