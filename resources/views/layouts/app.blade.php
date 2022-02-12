@@ -30,7 +30,7 @@
     <div class="top-header py-2 bg-white">
         <div class="container">
             <div class="row no-gutters">
-                <div class="col-lg-4 text-center text-lg-left">
+                <div class="col-lg-4 col-md-4 col-sm-12 text-center text-lg-left">
                     <a class="text-color mr-3" href="callto:+443003030266"><strong>Teléfono</strong> +52 844 000 0000</a>
                     <ul class="list-inline d-inline">
                         <li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color" href="#"><i class="ti-facebook"></i></a></li>
@@ -39,7 +39,7 @@
                         <li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color" href="#"><i class="ti-instagram"></i></a></li>
                     </ul>
                 </div>
-                <div class="col-lg-8 text-center text-lg-right">
+                <div class="col-lg-8 col-md-8 col-sm-12 text-center text-lg-right">
                     <ul class="list-inline">
                         <li class="list-inline-item">
                             <a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" style="font-size: 15px;" href="http://dycea.software/diffca/" target="_blank">Iniciar Sesión</a>
