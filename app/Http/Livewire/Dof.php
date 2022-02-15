@@ -21,7 +21,7 @@ class Dof extends Component
     {
         $date = date_format(date_create($this->date), "d-m-Y");
         $response = Util::getGuzzleClientDof('https://sidofqa.segob.gob.mx', 'GET', "/dof/sidof/notas/{$date}");
-        if ($response->messageCode == 200) {
+        if ($response->messageCode == 200 && count($response->NotasMatutinas) != 0) {
             $response = $this->responseStructure($response);
         } else {
             $response = NULL;

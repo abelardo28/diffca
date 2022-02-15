@@ -39,18 +39,26 @@
             </div>
             <div class="row mt-3">
                 <div class="col-12">
-                    @foreach($response as $key => $resp)
+                    @if($response)
+                        @foreach($response as $key => $resp)
+                        <div class="card mb-3">
+                            <div class="card-title bg-primary text-white font-weight-bold p-3 mb-0">{{ $key }}</div>
+                            <div class="card-body p-0">
+                                <ul class="list-group list-group-flush">
+                                @foreach($resp as $notes)
+                                    <li class="list-group-item">{{ $notes->note }}</li>
+                                @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                        @endforeach
+                    @else
                     <div class="card mb-3">
-                        <div class="card-title bg-primary text-white font-weight-bold p-3 mb-0">{{ $key }}</div>
-                        <div class="card-body p-0">
-                            <ul class="list-group list-group-flush">
-                            @foreach($resp as $notes)
-                                <li class="list-group-item">{{ $notes->note }}</li>
-                            @endforeach
-                            </ul>
+                        <div class="card-body">
+                            <p class="text-center">El día de hoy no se ha publicado información del Diario Oficial de la Federación, pero puede realizar filtro de fechas anteriores.</p>
                         </div>
                     </div>
-                    @endforeach
+                    @endif
                 </div>
             </div>
         </div>

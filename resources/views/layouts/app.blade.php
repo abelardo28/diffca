@@ -31,7 +31,7 @@
         <div class="container">
             <div class="row no-gutters">
                 <div class="col-lg-4 col-md-4 col-sm-12 text-center text-lg-left">
-                    <a class="text-color mr-3" href="callto:+443003030266"><strong>Teléfono</strong> +52 844 000 0000</a>
+                    <a class="text-color mr-3" href="callto:+443003030266"><strong>Teléfono</strong> +52 844 439 2240</a>
                     <ul class="list-inline d-inline">
                         <li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color" href="#"><i class="ti-facebook"></i></a></li>
                         <li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color" href="#"><i class="ti-twitter-alt"></i></a></li>
@@ -96,9 +96,9 @@
                 <div class="col-lg-4 col-sm-8 mb-5 mb-lg-0">
                     <a class="logo-footer" href="{{ route('index') }}"><img class="img-fluid mb-4" src="https://diffca.com/wp-content/uploads/2018/10/LOGO2.png" alt="logo"></a>
                     <ul class="list-unstyled">
-                        <li class="mb-2">P.º de los Claveles 485, Residencial San Patricio, 26450 Coahuila, Coah.</li>
-                        <li class="mb-2">+52 844 000 0000</li>
-                        <li class="mb-2">contacto@diffca.com</li>
+                        <li class="mb-2">Paseo de los Claveles 485, San Patricio, 25204 Coahuila, Coah.</li>
+                        <li class="mb-2">+52 844 439 2240</li>
+                        <li class="mb-2">recepcion@diffca.com</li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-5 mb-md-0"></div>
