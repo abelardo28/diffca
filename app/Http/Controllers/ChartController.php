@@ -13,7 +13,7 @@ class ChartController extends Controller
         return $response;
     }
 
-    public function json_inpc(){
+    public static function json_inpc(){
         $last_date = date("Y-m-d",strtotime(date("d-m-Y")."- 32 month"));
         $response = Util::getGuzzleClient('https://www.banxico.org.mx', 'GET', "/SieAPIRest/service/v1/series/SP1/datos/{$last_date}/".date('Y-m-d'));
         return $response;
