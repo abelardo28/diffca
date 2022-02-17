@@ -2,83 +2,86 @@
 
 @section('styles')
 <style type="text/css">
-.table thead th{
-    font-size: 12px;
-}
-.table tbody td{
-    font-size: 12px;
-}
-.tree, .tree ul {
-    margin:0;
-    padding:0;
-    list-style:none
-}
-.tree ul {
-    margin-left:1em;
-    position:relative
-}
-.tree ul ul {
-    margin-left:.5em
-}
-.tree ul:before {
-    content:"";
-    display:block;
-    width:0;
-    position:absolute;
-    top:0;
-    bottom:0;
-    left:0;
-    border-left:1px solid
-}
-.tree li {
-    margin:0;
-    padding:0 1em;
-    line-height:2em;
-    font-weight:600;
-    position:relative;
-    cursor: pointer;
-}
-.title {
-    font-size: 20px;
-    color: #c19500;
-}
-.subtitle {
-    font-size: 16px;
-    color: #182b45;
-}
-.tree ul li:before {
-    content:"";
-    display:block;
-    width:10px;
-    height:0;
-    border-top:1px solid;
-    margin-top:-1px;
-    position:absolute;
-    top:1em;
-    left:0
-}
-.tree ul li:last-child:before {
-    background:#fff;
-    height:auto;
-    top:1em;
-    bottom:0
-}
-.indicator {
-    margin-right:5px;
-}
-.tree li a {
-    text-decoration: none;
-    color:#369;
-}
-.tree li button, .tree li button:active, .tree li button:focus {
-    text-decoration: none;
-    color:#369;
-    border:none;
-    background:transparent;
-    margin:0px 0px 0px 0px;
-    padding:0px 0px 0px 0px;
-    outline: 0;
-}
+    .form-control {
+        height: 40px;
+    }
+    .table thead th{
+        font-size: 12px;
+    }
+    .table tbody td{
+        font-size: 12px;
+    }
+    .tree, .tree ul {
+        margin:0;
+        padding:0;
+        list-style:none
+    }
+    .tree ul {
+        margin-left:1em;
+        position:relative
+    }
+    .tree ul ul {
+        margin-left:.5em
+    }
+    .tree ul:before {
+        content:"";
+        display:block;
+        width:0;
+        position:absolute;
+        top:0;
+        bottom:0;
+        left:0;
+        border-left:1px solid
+    }
+    .tree li {
+        margin:0;
+        padding:0 1em;
+        line-height:2em;
+        font-weight:600;
+        position:relative;
+        cursor: pointer;
+    }
+    .title {
+        font-size: 20px;
+        color: #c19500;
+    }
+    .subtitle {
+        font-size: 16px;
+        color: #182b45;
+    }
+    .tree ul li:before {
+        content:"";
+        display:block;
+        width:10px;
+        height:0;
+        border-top:1px solid;
+        margin-top:-1px;
+        position:absolute;
+        top:1em;
+        left:0
+    }
+    .tree ul li:last-child:before {
+        background:#fff;
+        height:auto;
+        top:1em;
+        bottom:0
+    }
+    .indicator {
+        margin-right:5px;
+    }
+    .tree li a {
+        text-decoration: none;
+        color:#369;
+    }
+    .tree li button, .tree li button:active, .tree li button:focus {
+        text-decoration: none;
+        color:#369;
+        border:none;
+        background:transparent;
+        margin:0px 0px 0px 0px;
+        padding:0px 0px 0px 0px;
+        outline: 0;
+    }
 </style>
 @endsection
 
@@ -134,6 +137,53 @@
                 <div class="col-md-12 col-12">
                     @if($indicator == "inpc")
                     <h5 class="text-center mb-3">Índice de Nacional de Precios al Consumidor</h5>
+                    <form class="form-inline d-flex justify-content-center my-4">
+                        <label for="start_month">De:</label>
+                        <select class="form-control mx-2" id="start_month">
+                            <option value="Ene" selected>Ene</option>
+                            <option value="Feb">Feb</option>
+                            <option value="Mar">Mar</option>
+                            <option value="Abr">Abr</option>
+                            <option value="May">May</option>
+                            <option value="Jul">Jul</option>
+                            <option value="Ago">Ago</option>
+                            <option value="Sep">Sep</option>
+                            <option value="Oct">Ago</option>
+                            <option value="Nov">Nov</option>
+                            <option value="Dic">Dic</option>
+                        </select>
+                        <select class="form-control mx-2" id="start_year">
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <option value="2017" selected>2017</option>
+                        </select>
+                        <label for="end_date">Al:</label>
+                        <select class="form-control mx-2" id="end_month">
+                            <option value="Ene" selected>Ene</option>
+                            <option value="Feb">Feb</option>
+                            <option value="Mar">Mar</option>
+                            <option value="Abr">Abr</option>
+                            <option value="May">May</option>
+                            <option value="Jul">Jul</option>
+                            <option value="Ago">Ago</option>
+                            <option value="Sep">Sep</option>
+                            <option value="Oct">Ago</option>
+                            <option value="Nov">Nov</option>
+                            <option value="Dic">Dic</option>
+                        </select>
+                        <select class="form-control mx-2" id="end_year">
+                            <option value="2022" selected>2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <option value="2017">2017</option>
+                        </select>
+                        <button type="submit" class="btn btn-primary py-2">Buscar</button>
+                    </form>
                     <table class="table table-bordered table-striped" id="table-inpc">
                         <thead>
                             <tr><th></th><th>2017</th><th>2018</th><th>2019</th><th>2020</th><th>2021</th><th>2022</th></tr>
@@ -157,6 +207,53 @@
                     <div id="container-inpc"></div>
                     @elseif($indicator == "cpiu")
                     <h5 class="text-center mb-3">Índice de Inflación de EUA</h5>
+                    <form class="form-inline d-flex justify-content-center my-4">
+                        <label for="start_month">De:</label>
+                        <select class="form-control mx-2" id="start_month">
+                            <option value="Ene" selected>Ene</option>
+                            <option value="Feb">Feb</option>
+                            <option value="Mar">Mar</option>
+                            <option value="Abr">Abr</option>
+                            <option value="May">May</option>
+                            <option value="Jul">Jul</option>
+                            <option value="Ago">Ago</option>
+                            <option value="Sep">Sep</option>
+                            <option value="Oct">Ago</option>
+                            <option value="Nov">Nov</option>
+                            <option value="Dic">Dic</option>
+                        </select>
+                        <select class="form-control mx-2" id="start_year">
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <option value="2017" selected>2017</option>
+                        </select>
+                        <label for="end_date">Al:</label>
+                        <select class="form-control mx-2" id="end_month">
+                            <option value="Ene" selected>Ene</option>
+                            <option value="Feb">Feb</option>
+                            <option value="Mar">Mar</option>
+                            <option value="Abr">Abr</option>
+                            <option value="May">May</option>
+                            <option value="Jul">Jul</option>
+                            <option value="Ago">Ago</option>
+                            <option value="Sep">Sep</option>
+                            <option value="Oct">Ago</option>
+                            <option value="Nov">Nov</option>
+                            <option value="Dic">Dic</option>
+                        </select>
+                        <select class="form-control mx-2" id="end_year">
+                            <option value="2022" selected>2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <option value="2017">2017</option>
+                        </select>
+                        <button type="submit" class="btn btn-primary py-2">Buscar</button>
+                    </form>
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr><th></th><th>2017</th><th>2018</th><th>2019</th><th>2020</th><th>2021</th><th>2022</th></tr>
@@ -178,6 +275,53 @@
                     </table>
                     @elseif($indicator == "riff")
                     <h5 class="text-center mb-3">Recargos e Intereses a Cargo del Fisco General</h5>
+                    <form class="form-inline d-flex justify-content-center my-4">
+                        <label for="start_month">De:</label>
+                        <select class="form-control mx-2" id="start_month">
+                            <option value="Ene" selected>Ene</option>
+                            <option value="Feb">Feb</option>
+                            <option value="Mar">Mar</option>
+                            <option value="Abr">Abr</option>
+                            <option value="May">May</option>
+                            <option value="Jul">Jul</option>
+                            <option value="Ago">Ago</option>
+                            <option value="Sep">Sep</option>
+                            <option value="Oct">Ago</option>
+                            <option value="Nov">Nov</option>
+                            <option value="Dic">Dic</option>
+                        </select>
+                        <select class="form-control mx-2" id="start_year">
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <option value="2017" selected>2017</option>
+                        </select>
+                        <label for="end_date">Al:</label>
+                        <select class="form-control mx-2" id="end_month">
+                            <option value="Ene" selected>Ene</option>
+                            <option value="Feb">Feb</option>
+                            <option value="Mar">Mar</option>
+                            <option value="Abr">Abr</option>
+                            <option value="May">May</option>
+                            <option value="Jul">Jul</option>
+                            <option value="Ago">Ago</option>
+                            <option value="Sep">Sep</option>
+                            <option value="Oct">Ago</option>
+                            <option value="Nov">Nov</option>
+                            <option value="Dic">Dic</option>
+                        </select>
+                        <select class="form-control mx-2" id="end_year">
+                            <option value="2022" selected>2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <option value="2017">2017</option>
+                        </select>
+                        <button type="submit" class="btn btn-primary py-2">Buscar</button>
+                    </form>
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr><th></th><th>2017</th><th>2018</th><th>2019</th><th>2020</th><th>2021</th><th>2022</th></tr>
@@ -199,6 +343,53 @@
                     </table>
                     @elseif($indicator == "rppdp")
                     <h5 class="text-center mb-3">Recargos en Pago a Plazos Diferido o en Parcialidades</h5>
+                    <form class="form-inline d-flex justify-content-center my-4">
+                        <label for="start_month">De:</label>
+                        <select class="form-control mx-2" id="start_month">
+                            <option value="Ene" selected>Ene</option>
+                            <option value="Feb">Feb</option>
+                            <option value="Mar">Mar</option>
+                            <option value="Abr">Abr</option>
+                            <option value="May">May</option>
+                            <option value="Jul">Jul</option>
+                            <option value="Ago">Ago</option>
+                            <option value="Sep">Sep</option>
+                            <option value="Oct">Ago</option>
+                            <option value="Nov">Nov</option>
+                            <option value="Dic">Dic</option>
+                        </select>
+                        <select class="form-control mx-2" id="start_year">
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <option value="2017" selected>2017</option>
+                        </select>
+                        <label for="end_date">Al:</label>
+                        <select class="form-control mx-2" id="end_month">
+                            <option value="Ene" selected>Ene</option>
+                            <option value="Feb">Feb</option>
+                            <option value="Mar">Mar</option>
+                            <option value="Abr">Abr</option>
+                            <option value="May">May</option>
+                            <option value="Jul">Jul</option>
+                            <option value="Ago">Ago</option>
+                            <option value="Sep">Sep</option>
+                            <option value="Oct">Ago</option>
+                            <option value="Nov">Nov</option>
+                            <option value="Dic">Dic</option>
+                        </select>
+                        <select class="form-control mx-2" id="end_year">
+                            <option value="2022" selected>2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <option value="2017">2017</option>
+                        </select>
+                        <button type="submit" class="btn btn-primary py-2">Buscar</button>
+                    </form>
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr><th></th><th>2017</th><th>2018</th><th>2019</th><th>2020</th><th>2021</th><th>2022</th></tr>
@@ -220,6 +411,51 @@
                     </table>
                     @elseif($indicator == "smg")
                     <h5 class="text-center mb-3">Salarios Mínimos Generales</h5>
+                    <form class="form-inline d-flex justify-content-center my-4">
+                        <label for="start_month">De:</label>
+                        <select class="form-control mx-2" id="start_month">
+                            <option value="Ene" selected>Ene</option>
+                            <option value="Feb">Feb</option>
+                            <option value="Mar">Mar</option>
+                            <option value="Abr">Abr</option>
+                            <option value="May">May</option>
+                            <option value="Jul">Jul</option>
+                            <option value="Ago">Ago</option>
+                            <option value="Sep">Sep</option>
+                            <option value="Oct">Ago</option>
+                            <option value="Nov">Nov</option>
+                            <option value="Dic">Dic</option>
+                        </select>
+                        <select class="form-control mx-2" id="start_year">
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018" selected>2018</option>
+                        </select>
+                        <label for="end_date">Al:</label>
+                        <select class="form-control mx-2" id="end_month">
+                            <option value="Ene" selected>Ene</option>
+                            <option value="Feb">Feb</option>
+                            <option value="Mar">Mar</option>
+                            <option value="Abr">Abr</option>
+                            <option value="May">May</option>
+                            <option value="Jul">Jul</option>
+                            <option value="Ago">Ago</option>
+                            <option value="Sep">Sep</option>
+                            <option value="Oct">Ago</option>
+                            <option value="Nov">Nov</option>
+                            <option value="Dic">Dic</option>
+                        </select>
+                        <select class="form-control mx-2" id="end_year">
+                            <option value="2022" selected>2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                        </select>
+                        <button type="submit" class="btn btn-primary py-2">Buscar</button>
+                    </form>
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr><th>Mes</th><th>Área A</th><th>Área B</th><th>Área C</th><th>ZLFN</th><th>Fecha de publicación en DOF</th></tr>
@@ -279,6 +515,11 @@
                     </table>
                     @elseif($indicator == "smp")
                     <h5 class="text-center mb-3">Salarios Mínimos Profesionales</h5>
+                    <form class="form-inline d-flex justify-content-center my-4">
+                        <label for="start_date">Fecha:</label>
+                        <input type="date" class="form-control mx-2" name="date" value="{{ date('Y-m-d') }}">
+                        <button type="submit" class="btn btn-primary py-2">Buscar</button>
+                    </form>
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr><th>N°</th><th>Profesión, Oficio o Trabajo </th><th>Área A</th><th>Área B</th><th>Área C</th><th>ZLFN</th><th>DOF </th></tr>
@@ -349,6 +590,29 @@
                     </table>
                     @elseif($indicator == "smf")
                     <h5 class="text-center mb-3">Salario Mínimo Federal EUA</h5>
+                    <form class="form-inline d-flex justify-content-center my-4">
+                        <label for="start_date">De:</label>
+                        <select class="form-control mx-2" id="start_date">
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <option value="2017">2017</option>
+                            <option value="2016" selected>2016</option>
+                        </select>
+                        <label for="end_date">Al:</label>
+                        <select class="form-control mx-2" id="end_date">
+                            <option value="2022" selected>2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <option value="2017">2017</option>
+                            <option value="2016">2016</option>
+                        </select>
+                        <button type="submit" class="btn btn-primary py-2">Buscar</button>
+                    </form>
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr><th>Año</th><th>Salario por hora en USD</th></tr>
@@ -368,6 +632,29 @@
                     </thead>
                     @elseif($indicator == "uma")
                     <h5 class="text-center mb-3">Unidad de Medida y Actualización</h5>
+                    <form class="form-inline d-flex justify-content-center my-4">
+                        <label for="start_date">De:</label>
+                        <select class="form-control mx-2" id="start_date">
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <option value="2017">2017</option>
+                            <option value="2016" selected>2016</option>
+                        </select>
+                        <label for="end_date">Al:</label>
+                        <select class="form-control mx-2" id="end_date">
+                            <option value="2022" selected>2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
+                            <option value="2018">2018</option>
+                            <option value="2017">2017</option>
+                            <option value="2016">2016</option>
+                        </select>
+                        <button type="submit" class="btn btn-primary py-2">Buscar</button>
+                    </form>
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr><th>Mes</th><th>Diario</th><th>Mensual</th><th>Anual</th><th>Fecha de Publicación en DOF</th></tr>
