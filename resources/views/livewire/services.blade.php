@@ -41,13 +41,13 @@
                 </div>
                 <div class="col-md-6">
                     <h2>Asesoría Fiscal y Patrimonial</h2>
-                    <p class="text-justify">Nuestros servicios de asesoría fiscal se basan en el análisis de la actividad del cliente, información financiera, proyección del negocio, numero de socios, conocer si es un negocio familiar, entre muchos otros factores, para que después de esto se puedan aprovechar legalmente diferentes regímenes fiscales y/o figuras jurídicas, con el objetivo de disminuir, diferir o diluir la carga fiscal.</p>
+                    <p class="text-justify">Nuestros servicios de asesoría fiscal se basan en el análisis de la actividad del cliente, información financiera, proyección del negocio, número de socios, conocer si es un negocio familiar, entre muchos otros factores, para que después de esto se puedan aprovechar legalmente diferentes regímenes fiscales y/o figuras jurídicas, con el objetivo de disminuir, diferir o diluir la carga fiscal.</p>
                 </div>
             </div>
             <div class="row mb-5">
                 <div class="col-md-6">
                     <h2>Auditoría</h2>
-                    <p class="text-justify">Nuestros servicios de auditoria se desarrollan llevando a cabo una revisión de acuerdo al tipo de entidad, y de acuerdo a las necesidades del cliente, haciendo la mejor recomendación en cuanto a los alcances considerando las Normas Internacionales de Auditoria.</p>
+                    <p class="text-justify">Nuestros servicios de auditoría se desarrollan llevando a cabo una revisión de acuerdo al tipo de entidad, y de acuerdo a las necesidades del cliente, haciendo la mejor recomendación en cuanto a los alcances considerando las Normas Internacionales de Auditoria.</p>
                 </div>
                 <div class="col-md-6 mb-4 mb-md-0">
                     <img class="img-fluid" src="{{ asset('images/auditoria.png') }}" alt="auditoria">
@@ -59,7 +59,7 @@
                 </div>
                 <div class="col-md-6">
                     <h2>Nómina</h2>
-                    <p class="text-justify">Nuestro servicio de administración, proceso y timbrado de nomina es para cualquier tipo de cliente, ya que con las obligaciones fiscales vigentes esto se ha convertido en toda una especialidad. Este se refiere al calculo de la nomina y determinación de los impuestos de los trabajadores y los propios del patrón, incluyendo la seguridad social..</p>
+                    <p class="text-justify">Nuestro servicio de administración, proceso y timbrado de nómina es para cualquier tipo de cliente, ya que con las obligaciones fiscales vigentes esto se ha convertido en toda una especialidad. Este se refiere al cálculo de la nómina y determinación de los impuestos de los trabajadores y los propios del patrón, incluyendo la seguridad social.</p>
                 </div>
             </div>
             <div class="row mb-5">

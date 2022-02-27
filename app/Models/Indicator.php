@@ -6,5 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Indicator extends Model
 {
-    protected $fillable = ['type','description','value','status','updated_date'];
+    protected $fillable = ['name','description','status'];
+
+    public function subindicators(){
+        return $this->hasMany(Subindicator::class, 'indicator_id', 'id');
+    }
 }

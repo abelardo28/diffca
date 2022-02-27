@@ -10,7 +10,7 @@
                     </ul>
                 </div>
                 <div class="col-md-4 text-right">
-                    <button class="btn btn-primary btn-sm" wire:click="create()">Nueva Valor</button>
+                    <button class="btn btn-primary btn-sm" wire:click="create()">Nuevo Valor</button>
                 </div>
             </div>
         </div>
@@ -21,23 +21,25 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Tipo de Valor</th>
-                            <th class="text-center">Valor Representativo</th>
+                            <th>Nombre</th>
+                            <th class="text-center">Valor</th>
                             <th class="text-center">Símbolo</th>
                             <th class="text-center">Última Actualización</th>
+                            <th class="text-center">Representación</th>
                             <th class="text-center">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($values as $value)
                         <tr>
-                            <td>{{ $value->type }}</td>
-                            <td class="text-center">{{ $value->value }}</td>
-                            <td class="text-center">{{ $value->symbol }}</td>
-                            <td class="text-center">{{ $value->updated_date }}</td>
+                            <td>{{ $value->name }}</td>
+                            <td class="text-center">{{ $value->value ?? 'N/D' }}</td>
+                            <td class="text-center">{{ $value->symbol ?? 'N/D' }}</td>
+                            <td class="text-center">{{ $value->updated_date ?? 'N/D' }}</td>
+                            <td class="text-center">{{ $value->type == 1 ? 'Valor Único' : 'Árbol de Indicadores' }}</td>
                             <td class="text-center">
-                                <button type="button" class="btn btn-warning btn-sm" wire:click="edit({{ $value->id }})"><i class="ti-pencil"></i></button>
-                                <button type="button" class="btn btn-danger btn-sm" wire:click="delete({{ $value->id }})" onclick="confirm('¿Está seguro de eliminar el valor?') || event.stopImmediatePropagation()"><i class="ti-trash"></i></button>
+                                <button type="button" class="btn btn-warning btn-sm px-3" wire:click="edit({{ $value->id }})"><i class="ti-pencil"></i></button>
+                                <button type="button" class="btn btn-danger btn-sm px-3" wire:click="delete({{ $value->id }})" onclick="confirm('¿Está seguro de eliminar el valor?') || event.stopImmediatePropagation()"><i class="ti-trash"></i></button>
                             </td>
                         </tr>
                         @endforeach

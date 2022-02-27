@@ -9,7 +9,7 @@
                         <div class="col-md-8">
                             <h1 class="text-white" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".1">Responsabilidad y Confianza</h1>
                             <p class="text-muted mb-4" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".4">Nos equipamos por un grupo de expertos profesionales especializados en cada una de las áreas que cubrimos sobre nuestros servicios</p>
-                            <a href="contact.html" class="btn btn-primary" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".7">Nosotros</a>
+                            <a href="{{ route('about') }}" class="btn btn-primary" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".7">Nosotros</a>
                         </div>
                     </div>
                 </div>
@@ -18,7 +18,7 @@
                         <div class="col-md-8">
                             <h1 class="text-white" data-animation-out="fadeOutUp" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInDown" data-delay-in=".1">Seguridad y Compromiso</h1>
                             <p class="text-muted mb-4" data-animation-out="fadeOutUp" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInDown" data-delay-in=".4">Nos mantenemos al margen y actualizacipones de temas en los que nos especializamos para brindarles un servicio de calidad a nuestros clientes</p>
-                            <a href="contact.html" class="btn btn-primary" data-animation-out="fadeOutUp" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInDown" data-delay-in=".7">Servicios</a>
+                            <a href="{{ route('services') }}" class="btn btn-primary" data-animation-out="fadeOutUp" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInDown" data-delay-in=".7">Servicios</a>
                         </div>
                     </div>
                 </div>
@@ -27,7 +27,7 @@
                         <div class="col-md-8">
                         <h1 class="text-white" data-animation-out="fadeOutDown" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">Honradez y Honestidad</h1>
                             <p class="text-muted mb-4" data-animation-out="fadeOutDown" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".4">Si te encuentras interesado en contratar alguno de nuestros servicios, comunicate con nosotros y procuraremos contactárte lo más pronto posible para solucionar tus problemas.</p>
-                            <a href="contact.html" class="btn btn-primary" data-animation-out="fadeOutDown" data-delay-out="5" data-duration-in=".3" data-animation-in="zoomIn" data-delay-in=".7">Contacto</a>
+                            <a href="{{ route('contact') }}" class="btn btn-primary" data-animation-out="fadeOutDown" data-delay-out="5" data-duration-in=".3" data-animation-in="zoomIn" data-delay-in=".7">Contacto</a>
                         </div>
                     </div>
                 </div>
@@ -112,7 +112,7 @@
                 </div>
                 @foreach($values as $value)
                 <div class="col-sm-3 col-xl-3 mb-xl-4 mb-lg-2 mb-2 text-center text-sm-left">
-                    <h4 class="mb-xl-2 mb-lg-2 mb-2">{{ $value->type }}</h4>
+                    <h4 class="mb-xl-2 mb-lg-2 mb-2">{{ $value->name }}</h4>
                     <small class="text-secondary">Valor:</small>
                     <h2 class="text-primary"> {{ $value->value }}{{ $value->symbol }}</h2>
                     <small class="text-secondary">Act. </small><span class="font-weight-bold" id="last-date-tipo-cambio">{{ date_format(date_create($value->updated_date), 'd/m/Y') }}</span>

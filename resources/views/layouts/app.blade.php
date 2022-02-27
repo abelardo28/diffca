@@ -54,7 +54,7 @@
     <div class="navigation w-100">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-dark p-0">
-                <a class="navbar-brand" href="{{ route('index') }}"><img src="https://diffca.com/wp-content/uploads/2018/10/LOGO2.png" alt="logo"></a>
+                <a class="navbar-brand" href="{{ route('index') }}"><img src="{{ asset('images/LOGO2.png') }}" alt="logo"></a>
                 <button class="navbar-toggler rounded-0" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -95,9 +95,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-sm-8 mb-5 mb-lg-0">
-                    <a class="logo-footer" href="{{ route('index') }}"><img class="img-fluid mb-4" src="https://diffca.com/wp-content/uploads/2018/10/LOGO2.png" alt="logo"></a>
+                    <a class="logo-footer" href="{{ route('index') }}"><img class="img-fluid mb-4" src="{{ asset('images/LOGO2.png') }}" alt="logo"></a>
                     <ul class="list-unstyled">
-                        <li class="mb-2">Paseo de los Claveles 485, San Patricio, 25204 Coahuila, Coah.</li>
+                        <li class="mb-2">Paseo de los Claveles 485, San Patricio, 25204 Saltillo, Coah.</li>
                         <li class="mb-2">+52 844 439 2240</li>
                         <li class="mb-2">recepcion@diffca.com</li>
                     </ul>

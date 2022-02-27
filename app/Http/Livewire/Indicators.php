@@ -4,49 +4,54 @@ namespace App\Http\Livewire;
 
 use App\Utilities\Util;
 use Livewire\Component;
+use App\Models\Indicator;
+use App\Models\Subindicator;
 
 class Indicators extends Component
 {
-    public $indicator;
+    public $values;
+    public $indicators;
+    public $subindicator;
+
+    public function mount(){
+        $this->values = Subindicator::where(['status' => 1, 'type' => 1])->get();
+        $this->indicators = Indicator::with(['subindicators' => function($query){
+            $query->where('type', 2)->orderBy('name');
+        }])->where('status', 1)->orderBy('name')->get();
+    }
 
     public function render()
     {
         return view('livewire.indicators')->extends('layouts.app');
     }
 
-    public function getInformation($value){
-        $this->indicator = $value;
-        $title = $this->getTitleChart($value);
-        $this->dispatchBrowserEvent('show-chart', ['name' => $value, 'title' => "$title - Tabla Representativa"]);
+    public function showSubindicator(Subindicator $subindicator){
+        $this->subindicator = $subindicator;
+        $this->subindicator->data = $this->arrayToTable(json_decode($subindicator->data, true));
+        $this->dispatchBrowserEvent('show-subindicator',['data' => $subindicator->data]);
     }
 
-    public function getTitleChart($value){
-        switch ($value) {
-            case 'inpc':
-                $title = 'Índice Nacional de Precios al Consumidor';
-                break;
-            case 'cpiu':
-                $title = 'Índice de Inflación de EUA';
-                break;
-            case 'riff':
-                $title = 'Recargos e Intereses a Cargo del Fisco Federal';
-                break;
-            case 'rppdp':
-                $title = 'Recargos en Pago a Plazos Diferido o en Parcialidades';
-                break;
-            case 'smg':
-                $title = 'Salarios Mínimos Generales';
-                break;
-            case 'smp':
-                $title = 'Salarios Mínimos Profesionales';
-                break;
-            case 'smf':
-                $title = 'Salario Mínimo Federal EUA';
-                break;
-            case 'uma':
-                $title = 'Unidad de Medida y Actualización';
-                break;
+    public function arrayToTable($datas) {
+        if (is_null($datas)) {
+            return '<p class="text-center">No hay datos disponibles actualmente sobre el indicador seleccionado.</p>';
         }
-        return $title;
+        $table = '<table class="table table-bordered table-striped">';
+        foreach ($datas as $data) {
+            $header = "<thead><tr>";
+            foreach ($data as $key => $val) {
+                $header .= "<th>" . $key . "</th>";
+            }
+            $header .= "</tr></thead>";
+        }
+        $body = "<tbody><tr>";
+        foreach ($datas as $key => $data) {
+            foreach ($data as $age => $value) {
+                $body .= "<td data-age='{$age}'>" . $value . "</td>";
+            }
+            $body .="</tr>";
+        }
+        $table .= $header.$body.'</tr></tbody</table>';
+        return $table;
     }
+
 }

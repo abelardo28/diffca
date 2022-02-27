@@ -46,6 +46,13 @@ return [
         'blog-images' => [
             'driver' => 'local',
             'root' => public_path('blog-images'),
+            'url' => env('APP_URL').'/blog-images',
+        ],
+
+        'csv-datas' => [
+            'driver' => 'local',
+            'root' => public_path('csv-datas'),
+            'url' => env('APP_URL').'/csv-datas',
         ],
 
         'local' => [
