@@ -162,26 +162,14 @@
                     </ul>
                 </div>
             </div>
+            <div id="info"></div>
             <br><br><br><br><br>
-            <div class="row d-flex justify-content-center">
+            <div class="row d-flex justify-content-center content-subindicator">
                 <div class="col-md-12 col-12">
                     @if($subindicator)
                     <h5 class="text-center mb-3">{{ $subindicator->name }}</h5>
                     <form class="form-inline d-flex justify-content-center my-4">
-                        <label for="start_month">De:</label>
-                        <select class="form-control mx-2" id="start_month">
-                            <option value="Ene" selected>Ene</option>
-                            <option value="Feb">Feb</option>
-                            <option value="Mar">Mar</option>
-                            <option value="Abr">Abr</option>
-                            <option value="May">May</option>
-                            <option value="Jul">Jul</option>
-                            <option value="Ago">Ago</option>
-                            <option value="Sep">Sep</option>
-                            <option value="Oct">Ago</option>
-                            <option value="Nov">Nov</option>
-                            <option value="Dic">Dic</option>
-                        </select>
+                        <label for="start_month">Del:</label>
                         <select class="form-control mx-2" id="start_year">
                             <option value="2022">2022</option>
                             <option value="2021">2021</option>
@@ -191,19 +179,6 @@
                             <option value="2017" selected>2017</option>
                         </select>
                         <label for="end_date">Al:</label>
-                        <select class="form-control mx-2" id="end_month">
-                            <option value="Ene" selected>Ene</option>
-                            <option value="Feb">Feb</option>
-                            <option value="Mar">Mar</option>
-                            <option value="Abr">Abr</option>
-                            <option value="May">May</option>
-                            <option value="Jul">Jul</option>
-                            <option value="Ago">Ago</option>
-                            <option value="Sep">Sep</option>
-                            <option value="Oct">Ago</option>
-                            <option value="Nov">Nov</option>
-                            <option value="Dic">Dic</option>
-                        </select>
                         <select class="form-control mx-2" id="end_year">
                             <option value="2022" selected>2022</option>
                             <option value="2021">2021</option>
@@ -212,7 +187,8 @@
                             <option value="2018">2018</option>
                             <option value="2017">2017</option>
                         </select>
-                        <button type="submit" class="btn btn-primary py-2">Buscar</button>
+                        <button type="button" wire:click="$emit('filter')" class="btn btn-primary py-2 mr-2">Buscar</button>
+                        <button type="button" wire:click="showSubindicator({{ $subindicator->id}})" class="btn btn-primary py-2">Resetear</button>
                     </form>
                     {!! $subindicator->data !!}
                     @endif
@@ -224,6 +200,17 @@
 
 @section('scripts')
 <script type="text/javascript">
+    Livewire.on('filter', event => {
+        var min = $('#start_year').val();
+        var max = $('#end_year').val();
+        $('.table tbody tr td').filter(function(){
+            return $(this).data('header') < min || $(this).data('header') > max && $(this).data('header') == "";
+        }).hide();
+        $('.table thead tr th').filter(function(){
+            return $(this).html() < min || $(this).html() > max && $(this).html() == "";
+        }).hide();
+    })
+
     $.fn.extend({
         treed: function (o) {
             var openedClass = 'glyphicon-minus-sign';
@@ -278,54 +265,6 @@
     $('#tree1').treed();
     $('#tree2').treed({openedClass:'ti-folder', closedClass:'ti-folder'});
     $('#tree3').treed({openedClass:'glyphicon-chevron-right', closedClass:'glyphicon-chevron-down'});
-
-    $('.filter').change(function(){
-        filter_function();
-    });
-    $('table tbody tr').show(); //intially all rows will be shown
-    function filter_function(){
-        $('table tbody tr').hide(); //hide all rows 
-        var companyFlag = 0;
-        var companyValue = $('#filter-company').val();
-        var contactFlag = 0;
-        var contactValue = $('#filter-contact').val();
-        var rangeFlag = 0;
-        var rangeValue = $('#filter-range').val();
-        var rangeminValue = $('#filter-range').find(':selected').attr('data-min');
-        var rangemaxValue = $('#filter-range').find(':selected').attr('data-max');
-        //setting intial values and flags needed
-        //traversing each row one by one
-        $('table tr').each(function() {  
-            if(companyValue == 0){   //if no value then display row
-                companyFlag = 1;
-            } else if(companyValue == $(this).find('td.company').data('company')){ 
-                companyFlag = 1;       //if value is same display row
-            } else{
-                companyFlag = 0;
-            }            
-            if(contactValue == 0){
-                contactFlag = 1;
-            } else if(contactValue == $(this).find('td.contact').data('contact')){
-                contactFlag = 1;
-            } else{
-                contactFlag = 0;
-            }
-            if(rangeValue == 0){
-                rangeFlag = 1;
-            } else if((rangeminValue <= $(this).find('td.range').data('min') && rangemaxValue >  $(this).find('td.range').data('min')) ||  (
-                rangeminValue < $(this).find('td.range').data('max') &&
-                rangemaxValue >= $(this).find('td.range').data('max'))){
-                rangeFlag = 1;
-            } else{
-                rangeFlag = 0;
-            }
-            console.log(rangeminValue +' '+rangemaxValue);
-            console.log($(this).find('td.range').data('min') +' '+$(this).find('td.range').data('max'));
-            if(companyFlag && contactFlag && rangeFlag){
-                $(this).show();  //displaying row which satisfies all conditions
-            }
-        }); 
-    }
 
     //Chart tipo de cambio
     Highcharts.getJSON(

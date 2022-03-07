@@ -60,6 +60,7 @@
                             <div class="form-group">
                                 <label>Categorías:</label>
                                 <select class="form-control" wire:model="category">
+                                    <option value="">Todas</option>
                                     @foreach($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                                     @endforeach

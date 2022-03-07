@@ -45,8 +45,10 @@ class Indicators extends Component
         }
         $body = "<tbody><tr>";
         foreach ($datas as $key => $data) {
-            foreach ($data as $age => $value) {
-                $body .= "<td data-age='{$age}'>" . $value . "</td>";
+            $col = "";
+            foreach ($data as $head => $value) {
+                if(empty($col)): $col = $value; endif;
+                $body .= "<td data-header='{$head}' data-col='{$col}'>" . $value . "</td>";
             }
             $body .="</tr>";
         }
