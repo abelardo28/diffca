@@ -260,14 +260,14 @@
 
 @section('scripts')
 <script type="text/javascript">
-  //Chart tipo de cambio
-Highcharts.getJSON(
-    "{{ route('tipo-cambio') }}",
-    function (data) {
-        Highcharts.chart('container-tipo-cambio', {
+    $(document).ready(function() {
+        var current_date = moment().format('YYYY-MM-DD');
+        var last_date = moment().subtract(90, 'days').format('YYYY-MM-DD');
+        var options = {
             exporting: {enabled:false},
             credits: {enabled:false},
             chart: {
+                renderTo: 'container-tipo-cambio',
                 backgroundColor: '#ffffff',
                 height: 150,
                 zoomType: 'x'
@@ -295,23 +295,31 @@ Highcharts.getJSON(
             series: [{
                 type: 'area',
                 name: 'Valor',
-                data: data,
                 color: '#c19500'
             }]
+        };
+        var url = 'https://www.banxico.org.mx/SieAPIRest/service/v1/series/SF63528/datos/'+last_date+'/'+current_date+'?token={{ env('API_BANXICO_TOKEN') }}';
+        $.getJSON(url,  function(response) {
+            var data = response.bmx.series[0].datos;
+            var obj = {};
+            Object.keys(data).forEach(function (key) {
+                obj[data[key].fecha] = parseFloat(data[key].dato)
+            })
+            serie = Object.entries(obj);
+            options.series[0].data = serie;
+            var chart = new Highcharts.Chart(options);
+            $('#last-date-tipo-cambio').html(serie.at(-1)[0])
+            $('#last-value-tipo-cambio').html(serie.at(-1)[1])
         });
-        $('#last-date-tipo-cambio').html(data.at(-1)[0])
-        $('#last-value-tipo-cambio').html(data.at(-1)[1])
-    }
-);
-
-//Chart inpc
-Highcharts.getJSON(
-    "{{ route('inpc') }}",
-    function (data) {
-        Highcharts.chart('container-inpc', {
+    });
+    $(document).ready(function() {
+        var current_date = moment().format('YYYY-MM-DD');
+        var last_date = moment().subtract(960, 'days').format('YYYY-MM-DD');
+        var options = {
             exporting: {enabled:false},
             credits: {enabled:false},
             chart: {
+                renderTo: 'container-inpc',
                 backgroundColor: '#ffffff',
                 height: 150,
                 zoomType: 'x'
@@ -332,22 +340,75 @@ Highcharts.getJSON(
                 area: {
                     marker: {radius: 2},
                     lineWidth: 1,
-                    states: {hover: {lineWidth: 1}
-                    },
+                    states: {hover: {lineWidth: 1}},
                     threshold: null
                 }
             },
             series: [{
                 type: 'area',
                 name: 'Valor',
-                data: data,
                 color: '#c19500'
             }]
+        };
+        var url = 'https://www.banxico.org.mx/SieAPIRest/service/v1/series/SP1/datos/'+last_date+'/'+current_date+'?token={{ env('API_BANXICO_TOKEN') }}';
+        $.getJSON(url,  function(response) {
+            var data = response.bmx.series[0].datos;
+            var obj = {};
+            Object.keys(data).forEach(function (key) {
+                obj[data[key].fecha] = parseFloat(data[key].dato)
+            })
+            serie = Object.entries(obj);
+            options.series[0].data = serie;
+            var chart = new Highcharts.Chart(options);
+            $('#last-date-inpc').html(serie.at(-1)[0])
+            $('#last-value-inpc').html(serie.at(-1)[1])
         });
-        $('#last-date-inpc').html(data.at(-1)[0])
-        $('#last-value-inpc').html(data.at(-1)[1])
-    }
-);
+    });
+
+//Chart inpc
+// Highcharts.getJSON(
+//     "{{ route('inpc') }}",
+//     function (data) {
+//         Highcharts.chart('container-inpc', {
+//             exporting: {enabled:false},
+//             credits: {enabled:false},
+//             chart: {
+//                 backgroundColor: '#ffffff',
+//                 height: 150,
+//                 zoomType: 'x'
+//             },
+//             title: {text: ''},
+//             xAxis: {
+//                 visible: false,
+//                 type: 'datetime',
+//                 labels: {enabled: false}
+//             },
+//             yAxis: {
+//                 visible: false,
+//                 labels: {enabled: false},
+//                 title: {text: null}
+//             },
+//             legend: {enabled: false},
+//             plotOptions: {
+//                 area: {
+//                     marker: {radius: 2},
+//                     lineWidth: 1,
+//                     states: {hover: {lineWidth: 1}
+//                     },
+//                     threshold: null
+//                 }
+//             },
+//             series: [{
+//                 type: 'area',
+//                 name: 'Valor',
+//                 data: data,
+//                 color: '#c19500'
+//             }]
+//         });
+//         $('#last-date-inpc').html(data.at(-1)[0])
+//         $('#last-value-inpc').html(data.at(-1)[1])
+//     }
+// );
 
 $(function(){
     $.ajax({

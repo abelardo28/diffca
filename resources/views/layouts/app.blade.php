@@ -154,6 +154,7 @@
 <script src="{{ asset('plugins/venobox/venobox.min.js') }}"></script>
 <script src="{{ asset('plugins/filterizr/jquery.filterizr.min.js') }}"></script>
 <script src="{{ asset('plugins/toastr/toastr.min.js') }}"></script>
+<script src="{{ asset('js/moment.js') }}"></script>
 <script src="{{ asset('js/script.js') }}"></script>
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/data.js"></script>
