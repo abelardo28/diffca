@@ -35,7 +35,7 @@ class Indicators extends Component
         if (is_null($datas)) {
             return '<p class="text-center">No hay datos disponibles actualmente sobre el indicador seleccionado.</p>';
         }
-        $table = '<table class="table table-bordered table-striped">';
+        $table = '<table class="table table-bordered">';
         foreach ($datas as $data) {
             $header = "<thead><tr>";
             foreach ($data as $key => $val) {
